@@ -1,0 +1,176 @@
+Sorting
+------
+Arranging values of array either in ascending order or descending order. this is called sorting.
+
+It makes searching easy.Inside database data is kept in sorted order. so that searching or data happens easily.
+
+there are multiple sorting algorithm.Few of them are as
+
+1)Bubble sort
+2)Selection sort
+3)Insertion sort
+4)cell Sort
+5)Merge sort
+6)Heap sort
+etc
+
+
+Bubble Sort
+-----------
+10,8,11,5,4,1
+
+if value at index j is greater than value of j+1 then swap both value.
+it should be done round wise.
+after completing one round largest value will be shifted to it's correct position.
+
+swaping will take place like this:
+
+10,8,11,5,4,1
+-----------------(round 1 take place like this)
+8,10,11,5,4,1
+8,10,5,11,4,1
+8,10,5,4,11,1
+8,10,5,4,1,11
+
+Bubble sort Examples:
+--------------------
+First Pass: 
+( 5 1 4 2 8 ) –> ( 1 5 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1. 
+( 1 5 4 2 8 ) –>  ( 1 4 5 2 8 ), Swap since 5 > 4 
+( 1 4 5 2 8 ) –>  ( 1 4 2 5 8 ), Swap since 5 > 2 
+( 1 4 2 5 8 ) –> ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them.
+Second Pass: 
+( 1 4 2 5 8 ) –> ( 1 4 2 5 8 ) 
+( 1 4 2 5 8 ) –> ( 1 2 4 5 8 ), Swap since 4 > 2 
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 ) 
+( 1 2 4 5 8 ) –>  ( 1 2 4 5 8 ) 
+Now, the array is already sorted, but our algorithm does not know if it is completed. The algorithm needs one whole pass without any swap to know it is sorted.
+Third Pass: 
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 ) 
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 ) 
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 ) 
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 ) 
+
+Examples:
+--------
+Q-WAP to sort the elements of the array.
+public class Bubble_Sort 
+{
+	public static void main(String[] args) 
+	{
+		int [] num= {12,15,16,25,50,1,5,49,56,1};
+		int n=num.length;
+		//loop for round
+		for(int i=1;i<n;i++)
+		{
+			//loop for round wise swapping
+			for(int j=0;j<n-i;j++)
+			{
+				if(num[j]>num[j+1])
+				{
+					int temp=num[j];
+					num[j]=num[j+1];
+					num[j+1]=temp;
+				}
+			}
+		}
+		for(int x:num)
+		{
+			System.out.println(x);
+		}
+	}
+
+}
+
+Selection sorting
+-----------------
+public class App 
+{
+
+	public static void main(String[] args) 
+	{
+		int [] num= {29,21,17,14,16,5,4,8};
+		int n=num.length;
+		for(int i=0;i<n-1;i++)
+		{
+			int si=i;
+			for(int j=i+1;j<n;j++)   // to find index of smallest number
+			{
+				if (num[j]<num[si])
+				{
+					si=j;
+				}
+				// code to swap the smallest number with the first number of array
+				int temp=num[si];
+				num[si]=num[i];
+				num[i]=temp;
+			}
+			//code to display array numbers
+			
+		}
+		for(int x:num)
+		{
+			System.out.println(x);
+		}
+
+	
+	}
+
+}
+
+
+Linear Search
+-------------
+
+import java.util.Scanner;
+
+public class App 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		int [] num= {1,4,6,10,25,47,60};
+		System.out.println("Enter any number to search=");
+		int x=sc.nextInt();
+		boolean found=false;
+		int noc=0;
+		for(int i=0;i<num.length;i++)
+		{
+			noc++;
+			if(x==num[i])
+			{
+				found=true;
+				break;
+			}
+		}
+		System.out.println("Total number of comparison="+noc);
+		if(found)
+		{
+			System.out.println("Found");
+		}
+		else
+		{
+			System.out.println("Not Found");
+		}
+		
+	}
+
+}
+
+
+
+Binary Sorting
+--------------
+If data is in sorted order in the array rather than implementing line search algorithum, we should implement binary search.
+
+In case of linear search your code might do n comparison
+but in case of binary search after few comparison your programme will declare result
+
+example:1,4,6,10,25,47,60
+1)Find mid element index
+2)Compare mud element with element to be search
+These could be three posibilities
+A)equal
+B)greater
+C)small

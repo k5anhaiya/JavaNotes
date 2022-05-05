@@ -1,0 +1,141 @@
+Exception Handling
+------------------
+
+During Execution of programme some abnormal situtation/condition might be occurend. Few abnormal condition could be as
+1)Divide by 0
+2)Accessing array element beyond the array.
+3)Loading the file which does not exsits
+4)Connecting to the dataserver and server is not running.
+5)using network but network is down.
+etc.
+These abnormal condition are known as Exceptions
+Due to Exception programme will be terminated abruptly.
+
+following code will create exception
+--------------------------------------
+import java.util.Scanner;
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter first number=");
+		int num1=sc.nextInt();
+		System.out.print("Enter second number=");
+		int num2=sc.nextInt();
+		System.out.println("-------------------------");
+		int res1=num1/num2;
+		System.out.println("Division:"+res1);
+		int res2=num1*num2;
+		System.out.println("Multiplication="+res2);
+		int res3=num1+num2;
+		System.out.println("addition="+res3);
+		int res4=num1-num2;
+		System.out.println("substraction="+res4);
+	}
+}
+
+output
+--------
+
+Enter first number=90
+Enter second number=0
+-------------------------
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at App.main(App.java:13)
+
+
+Exception Handling is done to save the programme from being terminated when exception is created.
+
+same code with exception handling
+----------------------------------
+import java.util.Scanner;
+
+public class App2 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter first number=");
+		int num1=sc.nextInt();
+		System.out.print("Enter second number=");
+		int num2=sc.nextInt();
+		System.out.println("-------------------------");
+		try 
+		{
+			int res1=num1/num2;
+			System.out.println("Division:"+res1);
+		}
+		catch (ArithmeticException ex) 
+		{
+			System.out.println(ex);
+		}
+		int res2=num1*num2;
+		System.out.println("Multiplication="+res2);
+		int res3=num1+num2;
+		System.out.println("addition="+res3);
+		int res4=num1-num2;
+		System.out.println("substraction="+res4);
+	}
+}
+output
+------
+Enter first number=60
+Enter second number=0
+-------------------------
+java.lang.ArithmeticException: / by zero
+Multiplication=0
+addition=60
+substraction=60
+
+
+Exception Handler should be defined inside code,so that programme can complete execution.It means programme will not be terminated due to exception.
+
+programme should inform user about exception.This is part of exception handling.
+Following two activity are performed by exception handler:
+1)catching exception
+2)Displaying exception
+
+
+
+inside exception handler following 3 task performed
+1.exception create
+2.exception through
+3.exception catch
+
+
+creating exception
+------------------
+whena an abnormal condition occures.JVM or API creates an object this object JVM or Api stores information about exception.This object is known as exception.
+
+
+
+
+Nots:api is used to connect java programme to server . but if the server is shutdown then api will not able to connect with server hence programme will not run.inside api predefined methods are there used to create connection with database.
+
+
+
+Throwing exception
+-------------------
+After creating exception jvm or api throws that exception to the caller.
+Remember our programme is caller of JVM or API.
+
+
+
+
+catching exception
+------------------
+This is responsibility of the programme to catch the exception thrown by JVM or API.We must write code inside programme to catch all exception.This code is known as exception handler.This is achieved by following two blocks:
+1)try block
+2)catch block
+
+
+try
+{
+	//write code that could be responsible for exception
+}
+catch(ExceptionHandlerClass ex)
+{
+	//code to display exception
+}

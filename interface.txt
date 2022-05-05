@@ -1,0 +1,171 @@
+interface
+----------
+Like class it is an structure.
+it can not be used to create object.
+if we want to define only absract methods inside structure then we should define these methods inside interface rather than abstract class.
+Methods inside interface are by default public & by default abstract.
+it means we do not need to use public and abstract modifier
+methods defined inside the interface must be overriden in class.
+All abstract methods of interface must be overridden by implementation class.
+
+
+public abstract class Engine
+{
+	public abstract void StartEngine();
+	public abstract void StopEngine();
+}
+public class PetrolEngine extends Engine
+{
+	//override both methods here
+}
+public class DieselEngine extends Engine
+{
+	//override both methods here
+}
+public class CngEngine extends Engine
+{
+	//override both methods here
+}
+
+
+Methods inside interface are by default public & by default abstract.
+it means we do not need to use public and abstract modifier
+
+we use implements keyword to create child class of interface.
+
+
+public interface Engine
+{
+	void StartEngine();
+	void StopEngine();
+}
+public class PetrolEngine implements Engine
+{
+	//override both methods here
+}
+public class DieselEngine implements Engine
+{
+	//override both methods here
+}
+public class CngEngine implements Engine
+{
+	//override both methods here
+}
+
+
+example:
+
+public interface Engine 
+{
+	void StartEngine();
+	void StopEngine();
+
+}
+
+
+public class CngEngine implements Engine 
+{
+	public void StartEngine()
+	{
+		System.out.println("Cng engine started..");
+	}
+	public void StopEngine()
+	{
+		System.out.println("Cng engine stopped..");
+	}
+}
+
+
+
+public class DieselEngine implements Engine 
+{
+	public void StartEngine()
+	{
+		System.out.println("Diesel engine started..");
+	}
+	public void StopEngine()
+	{
+		System.out.println("Diesel engine stopped..");
+	}
+}
+
+
+
+public class PetrolEngine implements Engine 
+{
+	public void StartEngine()
+	{
+		System.out.println("petrol engine started..");
+	}
+	public void StopEngine()
+	{
+		System.out.println("petrol engine stopped..");
+	}
+}
+
+
+import java.util.Scanner;
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc= new Scanner(System.in);
+		Engine engine=null;
+		System.out.println("Enter 1 for petrol Engine");
+		System.out.println("Enter 2 for diesel Engine");
+		System.out.println("Enter 3 for cng Engine");
+		System.out.println("----------------------------");
+		System.out.println("Enter your choice");
+		int ch=sc.nextInt();
+		if(ch==1)
+		{
+		engine=new PetrolEngine();
+		}
+		else if(ch==2)
+		{
+		engine=new DieselEngine();
+		}
+		else if(ch==3)
+		{
+		engine=new CngEngine();
+		}
+		System.out.println("=====================");
+		System.out.println("Engine is ready..");
+		System.out.println("=====================");
+		while(true)
+		{
+			System.out.println("Enter 1 for start Engine");
+			System.out.println("Enter 2 for stop Engine");
+			System.out.println("Enter 3 to Quit");
+			System.out.println("----------------------------");
+			System.out.println("Enter your choice");
+			ch=sc.nextInt();
+			if(ch==1)
+			{
+				engine.StartEngine();
+			}
+			else if(ch==2)
+			{
+				engine.StopEngine();
+			}
+			else
+			{
+				System.out.println("Thank you...");
+				break;
+			}
+		}
+	}
+
+}
+
+
+1)Interface can not be used to create object.
+2)Methods of interface are by default public and abstract.
+3)A class can implement more than one interface.
+4)All abstract methods of the interfaces must be overridden by implementation class.
+5)Interface can have child interfaces
+6)child interface can have multiple parent interface.
+
+Interface is a contract/medium between java programme and java technologies.
+without interface we can not use any java technology or framework inside our programme.

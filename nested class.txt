@@ -1,0 +1,31 @@
+Nested class
+------------
+A Class which is defined inside another class is known as nested class.
+This class is also known as inner class.
+
+Public class AA
+{
+	class BB   //non-static nested class
+	{
+	}
+	Static class CC      //static nested class
+	{
+	}
+	void show()
+	{
+		class DD       //Local nested class
+		{
+		}
+	}
+}
+
+The class which is inside the class may be static nested class or non static nested class. the class which is defined inside method are called local nested class.
+
+The class in which nested class will be defined is known as outer class.
+
+here there are 3 nested class named BB CC DD
+and 1 outer class AA
+
+advantage
+---------
+Nested class can use properties (Methods,variables,etc) of the outer Class. 

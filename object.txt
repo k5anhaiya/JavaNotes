@@ -1,0 +1,95 @@
+object:
+-------
+Every real world entity is an object.
+
+Every object has following two characteristics:
+1.Attribute
+2.Behaviour
+
+Ex:- if we call pen as a object.
+attribute-> size, color, height,weight etc.
+Behaviour->refil, writing etc
+
+
+state of an object:
+------------------
+Value of attribute is state.
+10 inch is state of pen.
+red is state of pen.
+56kg is state of pen.
+
+Every object is identified by its state.
+programme create object to store the real world entity.
+
+Q-What is state ?
+A- value of attribute is called object.
+                 or
+it is data.
+
+code to create object:
+---------------------
+new classname(parameters);
+new patient("amit","singh",673.5,5.78,23);
+
+on execution of above code:
+-----------------------------
+1.variables are created  //Memory allocations.-->these values are attribute of the real world entity.
+2.values are assigned to the varibale //initialisation.-->these values are state of the real world entity.
+
+
+class:
+------
+-it is a blueprint or template from which object is created.
+-java programmes uses class to create one or more than one object.
+-we need to write  code to create objects
+
+new classname();
+ or
+new classname(parameters);
+
+-inside class attribute and behaviours of the objects are defined.
+-for attributes we need to define variables and constructors.
+-for behaviour we need to define methods.
+
+
+public class circle 
+{
+	int radius;       //attribute     creating the variable
+	public circle(int r)              //attribute  creating the constructor
+	{
+		radius=r;
+	}
+	public void setradius(int r)         // behaviour  it is a method
+	{
+		radius=r;
+	}
+	public int getradius()             // behaviour   it is a method
+	{
+		return radius;
+	}
+	public void showArea()            // behaviour    it is a method
+	{
+		double area=3.14*radius*radius;
+		System.out.println("area of circle="+area);
+	}
+}
+
+
+main:
+-----
+
+public class App 
+{
+
+	public static void main(String[] args) 
+	{
+		//code to create object
+		circle obj1=new circle(10);
+		//code to call method
+		obj1.showArea();
+		//code to call method
+		obj1.setradius(25);
+		obj1.showArea();
+	}
+
+}

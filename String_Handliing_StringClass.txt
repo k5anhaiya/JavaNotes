@@ -1,0 +1,87 @@
+String Class
+------------
+it is a immutable class.
+immutable means non modifiable.
+it means object of immutable classes can not be modified.
+So String stored in String class object can not be changed.It means this object is constant.
+
+StringBuffer class and StringBuilder class is mutable.
+
+StringBuffer class is synchronized while StringBuilder class is non-synchronized.
+
+
+if a class is synchronised then at a single time only one thread can use this class.while if a class is non synchronised then at a single time more than one thread can use this class.
+
+
+Remember  object of String class is created automatically for each String.So we do not need to write code to create object of String class.
+
+//we do not need to write code to create String class object if we want we can write.
+
+		String str1="Cetpa"
+		StringBuffer str2=new StringBuffer("Infotech");
+		StringBuilder str3=new StringBuilder("Noida");
+		
+		System.out.println(str1);
+		System.out.println(str2);
+		System.out.println(str3);
+
+
+String constant pool
+--------------------
+As we know Object of String class is created automatically for each String. JVM creates this object in String constant pool area in memory.
+
+other objects are created in heap area of the memory.
+
+Note:for Same String only one object of string class is created.
+
+String str1="Cetpa";
+//object of String class will be created for value cetpa and refrnece of the object is returned.variable str1 will hold that objetc's refrence.
+
+String str1="Cetpa";
+//for this value object has already been created,so new object will not be created for this cetpa .Refrence of old object will returned and  variable str2 will hold this refrence.
+
+
+proof that same string contains the same refrnce of the same object
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		String str1="CEtpa";
+		String str2="CEtpa";
+		
+		boolean res=str1==str2;
+		System.out.println(res);
+	}
+}
+output
+------
+true
+
+
+here the object of string class is created in heap area of memory hence saving the different refrnece.
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		
+		//this object is cretaed in String constant pool area in memory and is created automatically.
+		String str1="CEtpa";
+		String str2="CEtpa";
+		
+		boolean res=str1==str2;
+		System.out.println(res);
+
+		//this object of string class is created in heap memory
+		String str3=new String("Cetpa");
+		String str4=new String("Cetpa");
+		res=str3==str4;
+		System.out.println(res);
+	}
+}
+
+output
+------
+true
+false

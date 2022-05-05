@@ -1,0 +1,120 @@
+Implementation of interface.
+---------------------------
+we do not inherit interface we implement interface.
+classes does not inherit interface.
+classes implements interface.
+A class can implements more than one interfaces.
+The class which implements an interface is known as implementation of that interface.
+
+public interface AA
+{
+//methods();
+}
+
+public class BB implements AA
+{
+//methods();
+}
+
+here class BB is implementation of interface AA
+rule:(it is manadatory class)
+----
+All abstract methods of interface must be overridden by implementation class.
+
+
+public interface Engine 
+{
+	void StartEngine();
+	void StopEngine();
+
+}
+
+public class CngEngine implements Engine 
+{
+	public void StartEngine()
+	{
+		System.out.println("Cng engine started..");
+	}
+	public void StopEngine()
+	{
+		System.out.println("Cng engine stopped..");
+	}
+}
+
+public class DieselEngine implements Engine 
+{
+	public void StartEngine()
+	{
+		System.out.println("Diesel engine started..");
+	}
+	public void StopEngine()
+	{
+		System.out.println("Diesel engine stopped..");
+	}
+}
+
+public class PetrolEngine implements Engine 
+{
+	public void StartEngine()
+	{
+		System.out.println("petrol engine started..");
+	}
+	public void StopEngine()
+	{
+		System.out.println("petrol engine stopped..");
+	}
+}
+import java.util.Scanner;
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc= new Scanner(System.in);
+		Engine engine=null;
+		System.out.println("Enter 1 for petrol Engine");
+		System.out.println("Enter 2 for diesel Engine");
+		System.out.println("Enter 3 for cng Engine");
+		System.out.println("----------------------------");
+		System.out.println("Enter your choice");
+		int ch=sc.nextInt();
+		if(ch==1)
+		{
+		engine=new PetrolEngine();
+		}
+		else if(ch==2)
+		{
+		engine=new DieselEngine();
+		}
+		else if(ch==3)
+		{
+		engine=new CngEngine();
+		}
+		System.out.println("=====================");
+		System.out.println("Engine is ready..");
+		System.out.println("=====================");
+		while(true)
+		{
+			System.out.println("Enter 1 for start Engine");
+			System.out.println("Enter 2 for stop Engine");
+			System.out.println("Enter 3 to Quit");
+			System.out.println("----------------------------");
+			System.out.println("Enter your choice");
+			ch=sc.nextInt();
+			if(ch==1)
+			{
+				engine.StartEngine();
+			}
+			else if(ch==2)
+			{
+				engine.StopEngine();
+			}
+			else
+			{
+				System.out.println("Thank you...");
+				break;
+			}
+		}
+	}
+
+}

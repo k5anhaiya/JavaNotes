@@ -1,0 +1,190 @@
+oops
+----
+As we know java is an object oriented programming language.
+
+*every java programme on execution created one or more objects and calls method
+as we know programme call method to perform task.
+
+-programme creates object to keep data.
+-programme creates variables to keep data.
+-programme creates array to keep data.
+
+programme calls method to perform task on data as well as to use data.
+
+Question:Build a programme to store and display folowing infromation about 6
+number of patients.
+1.first name of every patient.
+2.last name of every patient.
+3.weight of every patient.
+4.height of every patient.
+5.Age of every patient.
+write code to store these information then write code to display these
+information
+
+Note:
+-----
+Remember one variable can store/hold only one value.
+
+
+Answer:
+for a single patient we need to write the code as follows:
+//write a programme to show the details of 1 patient.
+import java.util.Scanner;
+
+public class patientinfo 
+{
+	public static void main(String[] args) 
+	{
+		String firstname;
+		String lastname;
+		double weight;
+		double height;
+		int age;
+		Scanner obj=new Scanner(System.in);
+		System.out.print("Enter the first name:");
+		firstname=obj.nextLine();
+		System.out.print("Enter the last name:");
+		lastname=obj.nextLine();
+		System.out.print("Enter Weight:");
+		weight=obj.nextDouble();
+		System.out.print("Enter Height:");
+		height=obj.nextDouble();
+		System.out.print("Enter Age:");
+		age=obj.nextInt();
+		System.out.println(".............Patient Details................");
+		System.out.println("first name is:"+firstname);
+		System.out.println("Last name is:"+lastname);
+		System.out.println("weight is:"+weight);
+		System.out.println("height is:"+height);
+		System.out.println("age is:"+age);
+	}
+
+}
+
+for 3 patients we need to write the code as follows:
+----------------------------------------------------
+
+public class patientinfo2 
+{
+
+	public static void main(String[] args) 
+	{
+		String firstname1,firstname2,firstname3;
+		String lastname1,lastname2,lastname3;
+		double weight1,weight2,weight3;
+		double height1,height2,height3;
+		int age1,age2,age3;
+		
+		firstname1="Manish";
+		lastname1="Kumar";
+		weight1=70.25;
+		height1=5.65;
+		age1=24;
+		
+		firstname2="Kanhaiya";
+		lastname2="Kumar";
+		weight2=24.56;
+		height2=6.45;
+		age2=25;
+		
+		firstname3="Raja";
+		lastname3="Kumar";
+		weight3=25.54;
+		height3=10.5;
+		age3=24;
+		
+		
+		System.out.println("..............First Patient Details................");
+		System.out.println("first name is:"+firstname1);
+		System.out.println("Last name is:"+lastname1);
+		System.out.println("weight is:"+weight1);
+		System.out.println("height is:"+height1);
+		System.out.println("age is:"+age1);
+		
+		System.out.println("..............Second Patient Details................");
+		System.out.println("first name is:"+firstname2);
+		System.out.println("Last name is:"+lastname2);
+		System.out.println("weight is:"+weight2);
+		System.out.println("height is:"+height2);
+		System.out.println("age is:"+age2);
+		
+		System.out.println("..............Third Patient Details................");
+		System.out.println("first name is:"+firstname3);
+		System.out.println("Last name is:"+lastname3);
+		System.out.println("weight is:"+weight3);
+		System.out.println("height is:"+height3);
+		System.out.println("age is:"+age3);
+		
+	}
+
+}
+
+
+
+solution:
+Rather the defining varibales for each parameter and asigning value to each varibale , we need to define a
+template to achieve this.
+
+In case of template varibales will be defined only once.
+Inside template we will define every command only once.
+
+creating the template:
+----------------------
+
+
+public class patient 
+{
+	//code to create variable
+	String firstname;
+	String lastname;
+	double weight;
+	double height;
+	int age;
+	
+	//code to assign values to the variable
+	public patient(String v1, String v2, double v3, double v4, int v5)//it is a constructor
+	{
+	firstname=v1;
+	lastname=v2;
+	weight=v3;
+	height=v4;
+	age=v5;
+	}
+	
+	//code to display the values of these variables
+	public void showDetails()// it is a method
+	{
+		System.out.println(".............Patient Details one by one................");
+		System.out.println("first name is:"+firstname);
+		System.out.println("Last name is:"+lastname);
+		System.out.println("weight is:"+weight);
+		System.out.println("height is:"+height);
+		System.out.println("age is:"+age);
+	}
+	
+}
+
+
+creating the main application to run this template:
+-----------------------------------------------------
+public class App 
+{
+
+	public static void main(String[] args) 
+	{
+		
+	//code to store details of each patient
+	patient p1=new patient("Amit","singh",56.2,65.23,54);
+	patient p2=new patient("kanhaiya","kumar",55.2,20.3,24);
+	patient p3=new patient("Anmol","pandey",23.2,5.02,56);
+	patient p4=new patient("preeti","singh",74.2,56.23,20);
+	
+	
+	//code to display details of each patient
+	p1.showDetails();
+	p2.showDetails();
+	p3.showDetails();
+	p4.showDetails();
+	}
+
+}
