@@ -1,0 +1,318 @@
+encapsulation examples:
+-------------------------
+Q-Write a programme to show the bank transaction like show balance,
+deposit money, withdraw money etc.
+A-
+
+public class patient 
+{
+	//code to create varibales
+	String firstname;
+	String lastname;
+	double weight; 
+	double height;
+	int age;
+
+	//code to assign values to the variables
+	public patient(String v1,String v2,double v3,double v4,int v5)   //it is constructor
+	{
+		firstname=v1;
+		lastname=v2;
+		weight=v3;
+		height=v4;
+		age=v5;
+	}
+	//code to display values of these varibales
+	public void showDetails()  //it is a method
+	{
+		System.out.println("************patient details****************");
+		System.out.println("first name is:"+firstname);
+		System.out.println("last name is :"+lastname);
+		System.out.println("weight is    :"+weight);
+		System.out.println("height is    :"+height);
+		System.out.println("age is       :"+age);
+		
+	}
+
+}
+
+Main
+----
+
+public class Application 
+{
+
+	public static void main(String[] args) 
+	{
+		//code to store detail of each patient
+	patient obj1=new patient("Kanhaiya","kumar",56.25,21.55,22);
+	//on execution of above code 5 variables will be created and above values will be assigned.
+	//above code is written to create object
+	patient obj2=new patient("Manish","kumar",56.25,20.56,28);
+	patient obj3=new patient("Raja","kumar",24.56,24.36,26);
+	patient obj4=new patient("Roshni","kumar",28.56,29.56,24);
+	
+	
+	//code to display details of each patient
+	obj1.showDetails();
+	obj2.showDetails();
+	obj3.showDetails();
+	obj4.showDetails();
+	
+	
+	}
+
+}
+
+Q-Write a programme to find the area of rectangle
+A-
+
+public class rectangle 
+{
+	private int length;
+	private int breadth;
+	public rectangle(int length,int breadth)
+	{
+	this.length=length;
+	this.breadth=breadth;
+	}
+	public void showArea()
+	{
+		double area=length*breadth;
+		System.out.println("area of rectangle="+area);
+	}
+}
+Main
+----
+
+public class application 
+{
+
+	public static void main(String[] args) 
+	{
+	rectangle obj1=new rectangle(10,20);
+	obj1.showArea();
+	}
+
+}
+
+Q-write a code to book a seat in train & cancel a seat on train , one seat at
+same time.
+A-
+
+public class Train 
+{
+	private int totalSeats;
+	 public Train(int totalSeats)
+	 {
+	  this.totalSeats=totalSeats;
+	 }
+	 public void showSeats()
+	 {
+	  System.out.println("Total available seats are:"+totalSeats);
+	 }
+	 public void bookSeat()
+	 {
+	  if(totalSeats>=1)
+	  {
+	   System.out.println("One seat booked to you!!!");
+	   totalSeats--;
+	  }
+	  else
+	   System.out.println("Sorry no seat left!!!");
+	 }
+	 public void cancelSeat()
+	 {
+		 System.out.println("Seat cancelled!!!");
+		 totalSeats++;
+	 
+	 }
+	 
+}
+Main
+----
+
+public class tainApp 
+{
+	public static void main(String[] args) 
+	{
+	Train obj=new Train(3);
+	obj.showSeats();
+	obj.bookSeat();
+	obj.bookSeat();
+	obj.bookSeat();
+	obj.bookSeat();
+	obj.bookSeat();
+	obj.cancelSeat();
+	obj.bookSeat();
+	
+	}
+
+}
+
+Q-write a programme to issue & return a book from library
+A-
+
+public class Book 
+{
+	private int noOfCopy;
+	public Book(int noOfCopy)
+	{
+		this.noOfCopy=noOfCopy;
+	}
+	public void showDisplay()
+	{
+		System.out.println("Total number of copies available:"+noOfCopy);
+	}
+	public void issuebook(int book)
+	{
+		if(book<=noOfCopy)
+		{
+		noOfCopy-=book;
+		System.out.println(book+" book issued successfully");
+		}
+		else
+		System.out.println("Sorry no book left!!!");
+	}
+	public void returnbook(int book)
+	{
+		noOfCopy+=book;
+		System.out.println(book+" book returned successfully");
+	}
+}
+
+Main
+-----
+
+public class bookApp 
+{
+
+	public static void main(String[] args) 
+	{
+	Book obj=new Book(3);
+	obj.showDisplay();
+	obj.issuebook(2);
+	obj.showDisplay();
+	obj.returnbook(2);
+	obj.showDisplay();
+	obj.issuebook(1);
+	obj.showDisplay();
+	obj.returnbook(5);
+	obj.showDisplay();
+	}
+
+}
+
+
+
+static concept(searched by self source- youtube.com)
+-----------------
+
+public class company 
+{
+	int empid;    //this is variable declaration
+	String name;
+	String company;
+	
+	public company(int empid,String name,String company)      //this is constructor
+	{
+		this.empid=empid;
+		this.name=name;
+		this.company=company;
+	}
+	public void display()
+	{
+		System.out.println(empid+" "+name+" "+company);
+	}
+	public static void main(String[] args) 
+	{
+		company obj=new company(101,"kanhaiya","Maintec Technology");
+		obj.display();
+		company obj1=new company(102,"Manish","Maintec Technology");
+		obj1.display();
+		company obj2=new company(103,"Raja","Maintec Technology");
+		obj2.display();
+	}
+}
+
+
+//hence we found that memory allocation for same company will be done alot of times, as the number of 
+//object is created.it will use more memory hence we use static variable so that it may be declared at
+//class level.
+
+solution:
+
+
+public class company2 
+{
+	int empid;    //this is variable declaration
+	String name;
+	static String company="King of Punjab";
+	
+	public company2(int empid,String name)      //this is constructor
+	{
+		this.empid=empid;      //this is used to pick the variable at class level
+		this.name=name;
+	}
+	public void display()
+	{
+		System.out.println(empid+" "+name+" "+company);
+	}
+	public static void main(String[] args) 
+	{
+		company2 obj=new company2(101,"kanhaiya");
+		obj.display();
+		company2 obj1=new company2(102,"Manish");
+		obj1.display();
+		company2 obj2=new company2(103,"Raja");
+		obj2.display();
+	}
+}
+
+
+//static variable will share the memory with all the variables at class level.
+//static varibale is defined at class level.
+
+
+examples:
+==========
+
+public class count 
+{
+	int count1=0;
+	public count()    
+	{
+		count1++;
+		System.out.println(count1);
+		
+	}
+public static void main(String[] args) 
+	{
+		count obj=new count(); //each time it is calling the instance variable from the begning.
+		count obj1=new count(); //each time it is calling the instance variable from the begning.
+		count obj2=new count(); //each time it is calling the instance variable from the begning.
+		count obj3=new count(); //each time it is calling the instance variable from the begning.
+	}
+}
+
+
+solution:
+==========
+
+public class count2 
+{
+	static int count1=0;  //static varibale will share its memory with all varibales at class level.
+	public count2()
+	{
+		count1++;
+		System.out.println(count1);
+		
+	}
+public static void main(String[] args) 
+	{
+		count2 obj=new count2(); //each time it is calling the new recorded value of instance variable.
+		count2 obj1=new count2(); //each time it is calling the new recorded value of instance variable.
+		count2 obj2=new count2(); //each time it is calling the new recorded value of instance variable.
+		count2 obj3=new count2(); //each time it is calling the new recorded value of instance variable.
+	}
+}

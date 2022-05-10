@@ -1,0 +1,98 @@
+Finally Block:
+--------------
+code written inside this block is always executed.
+This Block is always Executed.
+
+
+
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Connection open.....");
+		
+		int [] x= {10,20,30,40,50};
+		int y=0;
+		try 
+		{
+			int z=x[4]/y;
+			System.out.println(z);
+			
+		}
+		catch (ArithmeticException ev) 
+		{
+			System.out.println(ev);
+		}
+		System.out.println("Connection close.....");
+		
+	}
+
+}
+
+this programme will give the correct out output upto connection close because we are using ArithmeticException here.
+
+but when the Exception will be related to Array Coonection close will not be executed. as shown:
+
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Connection open.....");
+		
+		int [] x= {10,20,30,40,50};
+		int y=0;
+		try 
+		{
+			int z=x[6]/y;
+			System.out.println(z);
+			
+		}
+		catch (ArithmeticException ev) 
+		{
+			System.out.println(ev);
+		}
+		System.out.println("Connection close.....");
+		
+	}
+
+}
+
+here we use finally block to executed the command.
+
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Connection open.....");
+		
+		int [] x= {10,20,30,40,50};
+		int y=0;
+		try 
+		{
+			int z=x[6]/y;
+			System.out.println(z);
+			
+		}
+		catch (ArithmeticException ev) 
+		{
+			System.out.println(ev);
+		}
+		finally 
+		{
+			System.out.println("Connection close.....");
+		}
+		
+		
+	}
+
+}
+output
+-------
+Connection open.....
+Connection close.....
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 6 out of bounds for length 5
+	at App.main(App.java:13)
+

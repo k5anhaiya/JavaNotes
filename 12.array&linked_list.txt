@@ -1,0 +1,59 @@
+Arrays & Linked List
+----------------------
+These are the tools that we can use to implement data structure.
+
+The data that we will keep in array is fixed . but in linked list we can keep any number of data that is linked list is resizable.
+
+Array  can not grow or shrink.
+
+Linked list can grow and shrink.
+
+--> Memory allocation of array is static.
+--> Memory allocation of linked list is dynamic.
+
+vvI
+---
+Array has contiguous memory location accessing data from the array is much faster than accessing data from linked list.
+
+use of for each loop
+---------------------
+public class App
+{
+	public static void main(String [] args)
+	{
+		int [] num={10,20,30,40,50,60,70,80,90,100};
+		for(int x:num)   //syntax of for-each loop
+		{
+		System.out.println(x);
+		}
+	}	
+}
+
+
+Q-WAP to display total of even and total of odd.
+A-
+
+public class Trial 
+{
+	public static void main(String[] args) 
+	{
+		int [] num= {1,20,50,33,80,12,345,67,190,1,45,66,120};
+		int even=0;
+		int odd=0;
+		for(int x:num)
+		{
+			if(x%2==0)
+			{
+				even++;
+			}
+			else
+			{
+				odd++;
+			}
+		}
+		System.out.println("Even="+even);
+		System.out.println("Odd="+odd);
+	}
+
+}
+

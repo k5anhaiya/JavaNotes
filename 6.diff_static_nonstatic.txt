@@ -1,0 +1,50 @@
+static method
+-------------
+Method should be static when inside method we are not using instance variable or 
+non-static variable. class name should be given to call this method.
+
+Non-static method
+-------------
+Method should be non static when inside method we are using instance variable or 
+non-static variable. object refrence  should be given to call this method.
+
+
+public class square 
+{
+	private int num;
+	public square(int n)
+	{
+		num=n;
+	}
+	public void square1()  //this is a non-static method as we are using instance 
+                             	//variable inside the method 
+	{
+		int sq=num*num;
+		System.out.println("Square by square1="+sq);
+	}
+	/*public void square2(int z)*/  // it should be static because we are not using instance variable 
+	                            //inside the method
+	public static void square2(int z)
+	{
+		int sq=z*z;
+		System.out.println("Square by square2="+sq);
+	}
+}
+
+
+main
+-----
+
+public class squareApp 
+{
+	public static void main(String[] args) 
+	{
+		square obj=new square(25);
+		obj.square1();
+		/*obj.square2(10); */ //but here unneccessary we are giving refrence of the object for that we are 
+		                  //creating the object also.
+		square.square2(15);   //static method will be called by classname.directly.
+	}
+}
+
+

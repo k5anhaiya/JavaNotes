@@ -1,0 +1,56 @@
+package
+--------
+It is container of similar types of classes.
+As we know every class is a file, so package will be a folder. 
+
+package cetpa;
+public class AA
+{
+}
+
+to compile use the command: 
+
+javac -d . AA.java
+
+Every class is a file and package is a folder.
+
+package com.cetpa;
+public class BB
+{
+}
+
+Core java library
+-----------------
+It has approximately 50 thousand classes.
+these classes are kept into packages. upto 500 packages are there in library.
+Few useful packages are as follows
+1)java.lang
+2)java.lang.reflect
+4)java.util
+5)java.awt
+6)java.awt.event
+7)java.sql
+8)java.io
+9)java.date
+10)java.net
+11)javax.swing
+12)javax.swing.border
+13)javax.swing.event
+14)javax.lang
+15)javax.sql
+etc
+
+java.lang: It is default package of the library.In order to use classes of this package we do not need to write import statement.Few useful classes of this pacakge is as:
+A)String
+B)System
+C)Object
+D)Thread
+E)Exception
+G)Integer
+H)Character
+etc
+
+All packages of the core java library are compressed into a zip file known as rt.jar
+these jar file are known as library of java classes.
+
+This jar file is stored inside lib folder.           inside  c:\ java

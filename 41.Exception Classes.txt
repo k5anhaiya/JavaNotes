@@ -1,0 +1,68 @@
+Exception classes
+-----------------
+There are n number of classes.these classes are in hierarchichal manner.
+we can also define custom exception classes.
+Topmost class Throwable class. it(Throwable) has 2child or subclass
+
+important for interview
+------------------------
+1)Exception class:programme can caught exception of this class.
+2)Error class:programme can not catch exception of this class.
+
+Exception class
+---------------
+It has several child classes.few of them are as follows.
+1)FileNotFounfException class
+2)IOException class
+3)InterruptedException class
+4)SQLException class
+5)RuntimeException class
+	a)ArithmeticException class
+	b)ArrayIndexOutOfBoundsException class
+	c)NullPointerException class
+	d)ClassCastException class
+etc
+
+
+Exception are divided into two categories
+1.Checked Exception:
+-------------------
+compiler will force us to use try and catch.These exception are also known as Compile time exception.This is because compiler checks whether code has handler of exception or not .If handler does not exist then generate errors.
+Except RunTimeException class exceptions(such as ArithmeticException,NullPointerException,etc)rest of exceptions are unchecked
+
+
+2.Unchecked Exception:
+----------------------
+These exception are also known as runtime exception.This is because compiler doesnot checks whether code has handler of exception or not .If handler does not exist then generate errors. RunTimeException class exceptions(such as ArithmeticException,NullPointerException,are unchecked exceptions.
+
+Remember unchecked Exception can be prevented by putting condition.
+
+
+
+import java.util.Scanner;
+
+public class App2 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter first number=");
+		int num1=sc.nextInt();
+		System.out.print("Enter second number=");
+		int num2=sc.nextInt();
+		System.out.println("-------------------------");
+		if(num2!=0)
+		{
+		int res1=num1/num2;
+		System.out.println("Division:"+res1);
+		}
+		int res2=num1*num2;
+		System.out.println("Multiplication="+res2);
+		int res3=num1+num2;
+		System.out.println("addition="+res3);
+		int res4=num1-num2;
+		System.out.println("substraction="+res4);
+	}
+}
+
+compiler will not force to use try and catch

@@ -1,0 +1,108 @@
+String class Methods
+--------------------
+It has several useful methods.
+
+
+1)public int length()
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		
+		//this object is cretaed in String constant pool area in memory and is created automatically.
+		String str1="Welcome to the cetpa Infotech";
+		int x=str1.length();
+		System.out.println(x);
+	}
+}
+
+2)public char charAt(int index)
+
+
+public class App2 
+{
+	public static void main(String[] args) 
+	{
+		
+		//this object is cretaed in String constant pool area in memory and is created automatically.
+		String str1="international";
+		char ch=str1.charAt(5);
+		System.out.println(ch);
+	}
+}
+
+WAP to print CETPA in vertical.
+
+public class App3 
+{
+	public static void main(String[] args) 
+	{
+		
+		//this object is cretaed in String constant pool area in memory and is created automatically.
+		String str1="CETPA";
+		for(int i=0;i<str1.length();i++)
+		{
+		char ch=str1.charAt(i);
+		System.out.println(ch);
+		}
+	}
+}
+
+
+
+Q-pattern printing
+
+public class App4 
+{
+	public static void main(String[] args) 
+	{
+		
+		
+		String str1="Kanhaiya";
+		for(int r=0;r<str1.length();r++)
+		{
+			for(int i=0;i<=r;i++)
+			{
+				char ch=str1.charAt(i);
+				System.out.print(ch);
+			}
+			System.out.println();
+		}
+	}
+}
+output
+------
+K
+Ka
+Kan
+Kanh
+Kanha
+Kanhai
+Kanhaiy
+Kanhaiya
+
+
+3)public int indexOf(char ch): it return the index of first occurence of specified character.if not found then returns -1.
+4)public int lastIndexOf(char ch): it return the index of last occurence of specified character.if not found then returns -1.
+5)public String subString(int fromindex)
+6)public String subString(int fromindex,int toindex)
+
+
+public class App6 
+{
+	public static void main(String[] args) 
+	{
+		
+		
+		String str1="international";
+		String x=str1.substring(5);   //index will be created from 5 to end
+		String y=str1.substring(5,11 );//index will be created from 5 to 10
+		
+		
+		System.out.println(x);
+		System.out.println(y);
+		
+	}
+}
+
