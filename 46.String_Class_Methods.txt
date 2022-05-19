@@ -85,8 +85,8 @@ Kanhaiya
 
 3)public int indexOf(char ch): it return the index of first occurence of specified character.if not found then returns -1.
 4)public int lastIndexOf(char ch): it return the index of last occurence of specified character.if not found then returns -1.
-5)public String subString(int fromindex)
-6)public String subString(int fromindex,int toindex)
+5)public String subString(int fromindex)    //index to end
+6)public String subString(int fromindex,int toindex)   //index between
 
 
 public class App6 
@@ -106,3 +106,216 @@ public class App6
 	}
 }
 
+7)public String toUpperCase()
+
+public class toUpperCase 
+{
+	public static void main(String[] args) 
+	{
+		String string="international day";
+		string=string.toUpperCase();
+		System.out.println(string);
+
+	}
+
+}
+
+8)public String toLowerCase()
+
+
+public class toLowerCase
+{
+	public static void main(String[] args) 
+	{
+		String st="STRING KAnhaiya KuMAR";
+		st=st.toLowerCase();
+		System.out.println(st);
+
+	}
+
+}
+
+
+wap to show first letter in uppercase and rest in lower case
+
+public class toUpperCaseExample 
+{
+	public static void main(String[] args) 
+	{
+		char [] str= {'c','e','T','P','a'};
+		if(str[0]>='a' && str[0]<='z')
+		{
+			str[0]=(char)(str[0]-32);
+		}
+		
+		for(int i=1;i<str.length;i++)
+		{
+			char ch=str[i];
+			if(ch>='A' && ch<='Z')
+			{
+				ch=(char)(ch+32);
+			}
+			str[i]=ch;
+		}
+		
+		System.out.println(str);
+
+	}
+
+}
+
+
+9)public String [] split(String seperator)
+
+wap to show the month of the dob
+
+
+public class showMonth 
+{
+	public static void main(String[] args) 
+	{
+		String dob="17/12/1997";
+		String [] ar=dob.split("/");
+		System.out.println(ar[1]);
+
+	}
+
+}
+
+
+10)public boolean  equals(Object obj): it is method of object class.String class has overridden it. 
+equal() method of object class compare refrence of two objects.
+while equal() method String class compare values of two objects.
+
+
+public class stringEquals
+{
+	public static void main(String[] args) 
+	{
+		String str1="kanhaiyakumar991";
+		String str2="KanhaiyaKumar991";
+		boolean st=str1.equals(str2);
+		System.out.println(st);
+
+	}
+
+}
+11)public String equalIgnoreCase(String str):IT is a method of string class it compare values of two string object
+
+public class stringEqualsIgnoreCase
+{
+	public static void main(String[] args) 
+	{
+		String str1="kanhaiyakumar991";
+		String str2="KanhaiyaKumar991";
+		boolean st=str1.equalsIgnoreCase(str2);
+		System.out.println(st);
+
+	}
+
+}
+
+
+Q-Difference betweeen == and equals() method.
+A-
+
+== operators compares the refrence of two objects.
+equals() method compares refrence of two objects.(equals() method of object class) and it can compare value of two objects.(equals() method of String class)
+
+
+public class myString 
+{
+	private String data;
+	
+	public myString(String str)
+	{
+		data=str;
+	}
+
+}
+main
+----
+
+public class App 
+{
+
+	public static void main(String[] args) 
+	{
+		myString str1=new myString("cetpa");  //here we are creating object of myString class defined by us
+		myString str2=new myString("cetpa");
+		
+		String str3=new String("cetpa");      //here we are creating object of string class which is already defined by java
+		String str4=new String("cetpa");
+		
+		boolean res1=str1.equals(str2);    //equals() method of object class compares the reference of two object.
+		boolean res2=str3.equals(str4);	   //equals() method of object overrided by String class compares the values of two object.
+		boolean res3=str1==str2;			 
+		boolean res4=str3==str4;			
+
+		System.out.println(res1);		//false
+		System.out.println(res2);		//true
+	}
+
+}
+
+
+for equals method
+-----------------
+
+public class App 
+{
+
+	public static void main(String[] args) 
+	{
+		myString str1=new myString("cetpa");  //here we are creating object of myString class defined by us
+		myString str2=new myString("cetpa");
+		
+		String str3=new String("cetpa");      //here we are creating object of string class which is already defined by java
+		String str4=new String("cetpa");
+		
+		boolean res1=str1.equals(str2);    //equals() method of object class compares the reference of two object.
+		boolean res2=str3.equals(str4);	   //equals() method of object overrided by String class compares the values of two object.
+		boolean res3=str1==str2;		//object is created in heap area of memory hence both str1&str2 will have different refrence
+		boolean res4=str3==str4;		//object is created in heap area of memory hence both str3&str4 will have different refrence	
+
+		System.out.println(res1);		//false
+		System.out.println(res2);		//true
+		System.out.println(res3);		//false
+		System.out.println(res4);		//false
+	}
+
+}
+
+printing refrence of the object
+--------------------------------
+In java refrence of the object can not be displayed.So when you will pass refrence variable to to println() method then following method will be called.
+public String toString()
+
+In this case value returned by toString() method will be displayed.
+
+toString() is a method of Object class.It returns combination of following String values.
+1)Class name
+2)@
+3)Hexa decimal value of object's hash code.
+
+String class method has overriden this toString() method and it return value of String class object.
+
+
+public class App2 
+{
+
+	public static void main(String[] args) 
+	{
+		myString str1=new myString("cetpa"); 
+		String str2=new String("cetpa");
+				
+		System.out.println(str1);		
+		System.out.println(str2);		
+	}
+		
+
+}
+output
+------
+myString@515f550a
+cetpa
