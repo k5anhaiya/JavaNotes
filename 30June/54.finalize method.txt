@@ -1,0 +1,29 @@
+finalize() 
+----------
+
+finalize() method is a method which is always called by garbage collector method just before destroying an object to perform cleanup activites.
+
+the work of garbage collector thread is to delete the extra space which are used by non-used object or non-refrenced object(which is not having any refrence in the programme) from the heap area of the memory and acquire available space for the next storage of object. this is done by jvm . jvm is responsible for creation start and stop of garbage collector thread in any class automatically when required.
+
+so whenever garbage collector want to destroy an object,before destruction of object it releases all the connections(outside resource connection like object is connected with database or it is connected with any file) it will first release all the outside connection and we write the code to release the code inside the finalize() method.
+
+finalise () method is available in Object class.Access modifier is protected for finialize method hence it is visible in current package of all class and visible in child classes of other package.implementation(body) of finalize method is empty.inside finalize method we will write code to release or close the connection from outside connection.
+
+every object in java is a subclass of object class.so any class of java can override finialise method.
+
+
+
+Q-we can overload finalize method or not..?
+
+A-Yes, you can. But the overloaded version won't be called by the JVM.
+
+protected void finalize() throws Throwable
+{
+  super.finalize();
+}
+
+protected void finalize(String lol) throws Throwable
+{
+  finalize();
+}  
+

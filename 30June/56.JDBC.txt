@@ -1,0 +1,12 @@
+JDBC(Java Database Connectivity)
+--------------------------------
+
+JDBC is an API.
+This API is used to connect and execute SQL (structured query language)query to the database.
+
+programme uses database to store data in the form of records permanently.
+Databse has mulitple tables.In these tables records are stored.
+
+Databse managment will be done by special types of software know as DBMS/RDBMS.(Database managment system/Relational database managment system).
+
+MYSQL is a DBMS software.

@@ -1,0 +1,19 @@
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		String name="Sanjeev";
+		String message="i am on the way to office";
+		message=name+" said:"+message;
+		
+		System.out.println(message);  //this is the original message
+		
+		int i=message.indexOf(':');   //indexof method is used to find the index of the character
+		message=message.substring(i);   //substring is method to get the words from char : to end
+		message="you said"+message;     //this is the converted message
+		System.out.println(message);
+
+	}
+
+}

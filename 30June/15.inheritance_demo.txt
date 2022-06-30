@@ -1,0 +1,219 @@
+revision of old class:
+======================
+
+creation of object from the class is known as instantitaion. this is because every object is instance of the class.
+
+multiple copies of instance variable will be created inside memory, so it can not be used directly.It must be refrenced.It means object refrence is required to access the instance variable.
+
+inheritance
+------------
+it is also known as code re-useability.
+
+it is a process in which a new class(The class which is being defined) acquired properties(such as methods) from an existing class.
+
+example:WAP to build a calculator
+-------
+public class Calculator 
+{
+	public void add(int num1, int num2)
+	{
+		int result=num1+num2;
+		System.out.println("sum="+result);
+	}
+	public void multiply(int num1, int num2)
+	{
+		int result=num1*num2;
+		System.out.println("multiply="+result);
+	}
+}
+
+when we create the App of this class
+main
+----
+
+
+public class App
+{
+	public static void main(String[] args) 
+	{
+		Calculator obj=new Calculator();
+		obj.add(10,20);
+		obj.multiply(10,25);
+	}
+
+}
+now we want to add the features to the calculator hence we do not need to modify the old class of the calculator file. we can create a new class and extends , here comes the aspect of inheritance.
+we will define a new class calculatorplus which will hold all the properties of calculator.
+
+public class CalculatorPlus extends Calculator
+{
+	public void subtract(int num1, int num2)
+	{
+		int res=num1-num2;
+		System.out.println("subtract="+res);
+	}
+	public void divide(int num1, int num2)
+	{
+		double res=(double)num1/num2;
+		System.out.println("Divide="+res);
+	}
+}
+
+again the main method will be change we create object of calculator plus now and this will hold all the properties of calculator also.
+
+public class App
+{
+	public static void main(String[] args) 
+	{
+		CalculatorPlus obj=new CalculatorPlus();
+		obj.add(10,20);
+		obj.multiply(10,25);
+		obj.divide(25, 2);
+		obj.subtract(25, 12);
+	}
+
+}
+in the above code class CalculatorPlus is acquiring the properties of class Calculator.
+
+here CalculatorPlus is child class or sub class or derived class.
+and Calculator is parent class or super class or base class. 
+
+Defining classes in hierarchical manner.
+---------------------------------------
+Those classes that have several common prperties should be defined in hierarchical manner.
+advantge
+1)it makes classes light weight.
+2)it reduces complexity of code.
+3)reduces code reusability.
+etc
+
+rather than defining common properties in all classes, define common properties in one extra class. this extra class should be parent of these child classes.
+
+examples:
+Q-WAP to to perform the airthmetic task
+A-
+import java.util.Scanner;
+
+public class Addition 
+{
+	private int num1;
+	private int num2;
+	private int res;
+	Scanner sc=new Scanner(System.in);
+	public void acceptNumbers()
+	{
+	System.out.print("Enter 1st number=");
+	num1=sc.nextInt();
+	System.out.print("Enter 2nd number=");
+	num2=sc.nextInt();
+	}
+	public void add()
+	{
+		res=num1+num2;
+	}
+	public void ShowDetails()
+	{
+		System.out.println("Result="+res);
+	}
+}
+import java.util.Scanner;
+
+public class Multiply 
+{
+	private int num1;
+	private int num2;
+	private int res;
+	Scanner sc=new Scanner(System.in);
+	public void acceptNumbers()
+	{
+	System.out.print("Enter 1st number=");
+	num1=sc.nextInt();
+	System.out.print("Enter 2nd number=");
+	num2=sc.nextInt();
+	}
+	public void multiply()
+	{
+		res=num1*num2;
+	}
+	public void ShowDetails()
+	{
+		System.out.println("Result="+res);
+	}
+
+}
+import java.util.Scanner;
+
+public class subtract 
+{
+	private int num1;
+	private int num2;
+	private int res;
+	Scanner sc=new Scanner(System.in);
+	public void acceptNumbers()
+	{
+	System.out.print("Enter 1st number=");
+	num1=sc.nextInt();
+	System.out.print("Enter 2nd number=");
+	num2=sc.nextInt();
+	}
+	public void subtract()
+	{
+		res=num1-num2;
+	}
+	public void ShowDetails()
+	{
+		System.out.println("Result="+res);
+	}
+
+}
+ 
+
+here several code are written again and again inside the same class. hence this is not a good way of programming rather than defining same code again and again we will define the same code the in extra class.
+
+import java.util.Scanner;
+
+public class AirthmeticTask 
+{
+	protected int num1;     //all the common code will be written in this code.
+	protected int num2;
+	protected int res;
+	Scanner sc=new Scanner(System.in);
+	public void acceptNumbers()
+	{
+	System.out.print("Enter 1st number=");
+	num1=sc.nextInt();
+	System.out.print("Enter 2nd number=");
+	num2=sc.nextInt();
+	}
+	public void ShowDetails()
+	{
+		System.out.println("Result="+res);
+	}
+
+
+}
+public class Addition extends AirthmeticTask 
+{
+	public void add()
+	{
+		res=num1+num2;
+	}
+	
+}
+public class Multiply extends AirthmeticTask 
+{
+	public void multiply()
+	{
+		res=num1*num2;
+	}
+}
+public class subtract extends AirthmeticTask 
+{
+	public void subtract()
+	{
+		res=num1-num2;
+	}
+}
+
+
+

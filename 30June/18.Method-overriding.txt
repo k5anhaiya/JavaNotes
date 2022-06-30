@@ -1,0 +1,123 @@
+Method overriding
+-----------------
+Redifining parent class methods into child class is known as method overriding.
+
+Rules of Method over riding:
+----------------------------
+1)Parameter list of the method should be same.
+2)Return type of method must be same.
+3)child class method should not be less accessible/visible than the parent class method.
+
+public class AA
+{
+	public void greet()
+	{
+	System.out.println("Hello");
+	}
+}
+public class BB extends AA
+{
+	public void greet()
+	{
+	System.out.println("Namaste");
+	}
+}
+public class CC extends AA
+{
+	public void greet()
+	{
+	System.out.println("sasriakal");
+	}
+}
+public class DD extends AA
+{
+	public void greet()
+	{
+	System.out.println("Asalam valekum");
+	}
+}
+
+main
+-----
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		//AA obj=new BB();  //here refrence of AA is taken because it is parent class
+		                  //here object of BB is creating.
+		//obj.greet();     //calling the method of BB
+
+		//AA obj=new CC();  //here refrence of AA is taken because it is parent class
+        					//here object of CC is creating.
+		//obj.greet();     //calling the method of CC
+
+		AA obj=new DD();  //here refrence of AA is taken because it is parent class
+        					//here object of DD is creating.
+		obj.greet();     //calling the method of DD
+	}
+
+}
+
+method overriding taking place again and again according to requirement.
+
+
+Example:
+Q-WAP to find the sum of three numbers third number should be added using method over riding.
+A-
+public class Addition
+{
+	private int num1,num2;
+	public Addition(int num1,int num2)  // this is constructor 
+	{
+		this.num1=num1;
+		this.num2=num2;
+	}
+	public int sum()
+	{
+	int sum=num1+num2;
+	return sum;
+	}
+}
+
+here we are getting the sum of two numbers while we create the object and call sum();
+but we need to add the sum of three numbers.
+
+hence we will make a new child class.
+
+public class AdditionPlus extends Addition
+{
+	private int num3;
+	public AdditonPlus(int num1,num2,num3)  //we need to define the constructor again for 
+                                                 //for three parameters
+	{
+		super(num1,num2);
+		this.num3=num3;
+	}
+	public int sum()          //we are again over riding the method
+	{
+		int res=super.sum();
+		res+=num3;
+		return res;
+	}
+}
+
+now the code is complete we need to make the main method.
+main
+----
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		/*Addition obj=new Addition(10,20);
+		int res=obj.sum();
+		System.out.println("Sum="+res);*/
+		/*Addition obj=new AdditionPlus(10,20,30);*/  //we can take refrence variable of
+		                                              // the parent class also.
+		AdditionPlus obj=new AdditionPlus(10,20,30);
+		int res=obj.sum();
+		System.out.println("Sum="+res);
+	}
+
+}
+this will add all three numbers.

@@ -1,0 +1,331 @@
+public static void sleep(long milliseconds)throws InterruptedException
+
+
+This is a method of Thread class. this sleep method used to delay the process of execution.
+
+
+public class numberThread extends Thread 
+{
+	public void run()
+	{
+		for(int num=10;num>=1;num--)
+		{
+			System.out.println(num);
+			try 
+			{
+			Thread.sleep(1000); //1000millisecond=1second
+			}
+			catch(InterruptedException ex)
+			{
+				System.out.println(ex);
+			}
+		}
+	}
+}
+main
+----
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		numberThread th=new numberThread();
+		th.start();
+	}
+
+}
+
+
+
+countdown demo using thread
+---------------------------
+
+import javax.swing.*;
+import java.awt.*;
+
+public class countDown 
+{
+	JFrame fr=new JFrame("CountDown");
+	JLabel la=new JLabel("10");
+	public countDown()
+	{
+		fr.setSize(400,400);
+		fr.setResizable(false);
+		fr.setLocationRelativeTo(null);
+		fr.setDefaultCloseOperation(3);
+		fr.setLayout(new FlowLayout(FlowLayout.CENTER,100,150));
+		fr.add(la);
+		la.setFont(new Font("lucida calligraphy",Font.BOLD,40));
+		new numberThread().start(); //it will create object and also start the thread
+		fr.setVisible(true);
+	}
+	class numberThread extends Thread
+	{
+		public void run()
+		{
+			for(int num=10;num>=1;num--)
+			{
+				la.setText(String.valueOf(num));  //String.valueof is used to convert int to String.
+				try 
+				{
+					Thread.sleep(1000);	
+				} 
+				catch (InterruptedException ex) 
+				{
+					System.out.println(ex);
+				}
+			}
+			System.out.println("Lets's Play....");
+		}
+	}
+	public static void main(String[] args) 
+	{
+		new countDown();
+	}
+
+}
+
+
+
+							same code with exit method
+
+
+import javax.swing.*;
+import java.awt.*;
+
+public class countDown 
+{
+	JFrame fr=new JFrame("CountDown");
+	JLabel la=new JLabel("10");
+	public countDown()
+	{
+		fr.setSize(400,400);
+		fr.setResizable(false);
+		fr.setLocationRelativeTo(null);
+		fr.setDefaultCloseOperation(3);
+		fr.setLayout(new FlowLayout(FlowLayout.CENTER,100,150));
+		fr.add(la);
+		la.setFont(new Font("lucida calligraphy",Font.BOLD,40));
+		new numberThread().start(); //it will create object and also start the thread
+		fr.setVisible(true);
+	}
+	class numberThread extends Thread
+	{
+		public void run()
+		{
+			for(int num=10;num>=1;num--)
+			{
+				la.setText(String.valueOf(num));  //String.valueof is used to convert int to String.
+				try 
+				{
+					Thread.sleep(1000);	
+				} 
+				catch (InterruptedException ex) 
+				{
+					System.out.println(ex);
+				}
+			}
+			la.setText("Lets's Play....");
+			try 
+			{
+				Thread.sleep(2000);	
+			} 
+			catch (InterruptedException ex) 
+			{
+				System.out.println(ex);
+			}
+			//Exit method of System class will terminate jvm
+			System.exit(0);
+		}
+	}
+	public static void main(String[] args) 
+	{
+		new countDown();
+	}
+
+}
+
+
+blinking message code
+----------------------
+
+
+import javax.swing.*;
+import java.awt.*;
+
+public class blinkingMessage 
+{
+	JFrame fr=new JFrame("Blinking Message");
+	JLabel la=new JLabel("Welcome to the Cetpa Infotech");
+	public blinkingMessage()
+	{
+		fr.setSize(400,400);
+		fr.setResizable(false);
+		fr.setLocationRelativeTo(null);
+		fr.setDefaultCloseOperation(3);
+		fr.setLayout(new FlowLayout(FlowLayout.CENTER,100,150));
+		fr.add(la);
+		la.setFont(new Font("lucida calligraphy",Font.BOLD,20));
+		new blinkThread().start(); //it will create object and also start the thread
+		fr.setVisible(true);
+	}
+	class blinkThread extends Thread
+	{
+		public void run()
+		{
+			while(true)
+			{
+				la.setVisible(true);  //blinking means to set the programme visible and invisible
+				try {
+					Thread.sleep(100);
+				} catch (Exception e) {}
+				la.setVisible(false);
+				try {
+					Thread.sleep(100);
+				} catch (Exception e) {}
+			}
+			
+		}
+	}
+	public static void main(String[] args) 
+	{
+		new blinkingMessage();
+	}
+
+}
+
+
+slowdown of blinking message and break in the last with time
+------------------------------------------------------------
+import javax.swing.*;
+import java.awt.*;
+
+public class blinkingMessage2 
+{
+	JFrame fr=new JFrame("Blinking Message");
+	JLabel la=new JLabel("Welcome to the Cetpa Infotech");
+	public blinkingMessage2()
+	{
+		fr.setSize(400,400);
+		fr.setResizable(false);
+		fr.setLocationRelativeTo(null);
+		fr.setDefaultCloseOperation(3);
+		fr.setLayout(new FlowLayout(FlowLayout.CENTER,100,150));
+		fr.add(la);
+		la.setFont(new Font("lucida calligraphy",Font.BOLD,20));
+		new blinkThread().start(); //it will create object and also start the thread
+		fr.setVisible(true);
+	}
+	class blinkThread extends Thread
+	{
+		int ctr=0;
+		int time=50;
+		public void run()
+		{
+			while(true)
+			{
+				la.setVisible(true);  //blinking means to set the programme visible and invisible
+				try {
+					Thread.sleep(time);
+				} catch (Exception e) {}
+				la.setVisible(false);
+				try {
+					Thread.sleep(time);
+				} catch (Exception e) {}
+				ctr++;
+				if(ctr%10==0)
+				{
+					time+=1;
+				}
+				if(time>=100)
+				{
+					la.setVisible(true);
+					break;
+				}
+			}
+			
+		}
+	}
+	public static void main(String[] args) 
+	{
+		new blinkingMessage2();
+	}
+
+}
+
+
+when mouse entered then it should stop blink when exited then again start blinking
+===================================================================================
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class blinkingMessage3 
+{
+	JFrame fr=new JFrame("Blinking Message");
+	JLabel la=new JLabel("Welcome to the Cetpa Infotech");
+	blinkThread th=new blinkThread();
+	public blinkingMessage3()
+	{
+		fr.setSize(400,400);
+		fr.setResizable(false);
+		fr.setLocationRelativeTo(null);
+		fr.setDefaultCloseOperation(3);
+		fr.setLayout(new FlowLayout(FlowLayout.CENTER,100,150));
+		fr.add(la);
+		la.setFont(new Font("lucida calligraphy",Font.BOLD,20));
+		la.addMouseListener(new blinkListener());
+		th.start(); //it will create object and also start the thread
+		fr.setVisible(true);
+	}
+	class blinkThread extends Thread
+	{
+		int ctr=0;
+		int time=50;
+		public void run()
+		{
+			while(true)
+			{
+				la.setVisible(true);  //blinking means to set the programme visible and invisible
+				try {
+					Thread.sleep(time);
+				} catch (Exception e) {}
+				la.setVisible(false);
+				try {
+					Thread.sleep(time);
+				} catch (Exception e) {}
+				ctr++;
+				if(ctr%10==0)
+				{
+					time+=1;
+				}
+				if(time>=100)
+				{
+					la.setVisible(true);
+					break;
+				}
+			}
+			
+		}
+	}
+
+	class blinkListener extends MouseAdapter
+	{
+		public void mouseEntered(MouseEvent ev)
+		{
+			//code to suspend thread
+			th.suspend();
+		}
+		public void mouseExited(MouseEvent ev)
+		{
+			//code to resume thread
+			th.resume();
+		}
+	}
+	public static void main(String[] args) 
+	{
+		new blinkingMessage3();
+	}
+
+}
+

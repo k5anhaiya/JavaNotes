@@ -1,0 +1,398 @@
+Set interface
+-------------
+Set is a child of collection interface
+so it has all methods of collection interface.
+it has only methods of collection interface.
+It has only one implementation class.The class is HashSet
+
+HashSet Class
+--------------
+It is an implementation of Set interface.
+Object of this collection is known as Set Collection.
+Set collection has following properties.
+
+1)it is an unordered collection.
+2)It does not allows duplicacy of element
+3)it allows single null value.
+4)It does not has index basex method.
+
+import java.util.HashSet;
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		HashSet<String> set1=new HashSet<String>();
+		set1.add("Kumhar");
+		set1.add("Kritika Nahar");
+		set1.add("Mridul Singh");
+		set1.add("Rahul");
+		set1.add(null); //it allows single null value
+		set1.add("Amit");
+		set1.add("Kuldeep");
+		set1.add("Hemant");
+		set1.add("Priya");
+		set1.add("Imran");
+		set1.add("Mridul Singh");//it do not allow duplicacy
+		set1.add(null);
+		System.out.println(set1);	
+	}
+
+}
+
+
+
+example
+---------
+
+public class Student
+{
+	private String name;
+	private String city;
+	private int age;
+	public Student(String name, String city, int age)
+	{	
+		this.name = name;
+		this.city = city;
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	@Override
+	public String toString()
+	{
+		return "Student [name=" + name + ", city=" + city + ", age=" + age + "]";
+	}
+	
+	
+
+}
+main
+----
+import java.util.HashSet;
+
+public class studentApp
+{
+	public static void main(String[] args) 
+	{
+		Student s1=new Student("Rahul","Noida", 23);
+		Student s2=new Student("Kapil","Lucknow", 43);
+		Student s3=new Student("Hemant","Allahabad", 20);
+		Student s4=new Student("Anita","Patna", 28);
+		HashSet<Student> set=new HashSet<Student>();
+		set.add(s1);
+		set.add(s2);
+		set.add(s3);
+		set.add(s4);
+		set.add(s2);//trying to check duplicates are allowed or not 
+		//s2 is not repeated
+		for(Student st:set)
+		{
+			System.out.println(st.toString());
+		}
+	}
+
+}
+
+output
+------
+Student [name=Hemant, city=Allahabad, age=20]
+Student [name=Rahul, city=Noida, age=23]
+Student [name=Kapil, city=Lucknow, age=43]
+Student [name=Anita, city=Patna, age=28]
+
+
+
+
+
+LinkedHashSet class
+===================
+It is a child of HashSet class.It maintains insertion order of elements.rest all the things will be same as LinkedHashSet.i.e it will allow single null value, it will not allow duplicacy.
+
+
+example
+-------
+
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		LinkedHashSet<String> set1=new LinkedHashSet<String>();
+		//HashSet<String> set1=new LinkedHashSet<String>(); //HashSet is parent class we can take this as String
+		set1.add("Kumhar");
+		set1.add("Kritika Nahar");
+		set1.add("Mridul Singh");
+		set1.add("Rahul");
+		set1.add(null); //it allows single null value
+		set1.add("Amit");
+		set1.add("Kuldeep");
+		set1.add("Hemant");
+		set1.add("Priya");
+		set1.add("Imran");
+		set1.add("Mridul Singh");//it do not allow duplicacy
+		set1.add(null);
+		System.out.println(set1);	
+	}
+
+}
+output
+------
+[Kumhar, Kritika Nahar, Mridul Singh, Rahul, null, Amit, Kuldeep, Hemant, Priya, Imran]
+
+
+TreeSet class
+--------------
+
+It is an implementation of Sorted interface.
+SortedSet is a child of set interface.
+collection of this interface keeps elements in sorted order(either ascending or descending).
+Note:TreeSet calls compareTo() method of Comparable interface to keep elements in sorted order.
+
+it is manadatory that object of that class whose object is creating should must override comparable interface, if not then it will show error.
+
+class of the element must implement comparable interface otherwise classCastException  exception will be thrown
+Remember All warpper classes (such as Integer,Character,Float,Double,Boolean,Byte,Short,Long) and String class have already implemented Comparable interface.
+example
+-------
+import java.util.TreeSet;
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<String> set1=new TreeSet<String>();
+		//HashSet<String> set1=new LinkedHashSet<String>(); //HashSet is parent class we can take this as String
+		set1.add("Kumhar");
+		set1.add("Kritika Nahar");
+		set1.add("Mridul Singh");
+		set1.add("Rahul");
+		//set1.add(null); //it allows single null value
+		set1.add("Amit");
+		set1.add("Kuldeep");
+		set1.add("Hemant");
+		set1.add("Priya");
+		set1.add("Imran");
+		set1.add("Mridul Singh");//it do not allow duplicacy
+	//	set1.add(null);
+		System.out.println(set1);	
+	}
+
+}
+output
+-------
+[Amit, Hemant, Imran, Kritika Nahar, Kuldeep, Kumhar, Mridul Singh, Priya, Rahul]
+
+Example to show ClassCastException
+===================================
+
+public class Student
+{
+	private String name;
+	private String city;
+	private int age;
+	public Student(String name, String city, int age)
+	{	
+		this.name = name;
+		this.city = city;
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	@Override
+	public String toString()
+	{
+		return "Student [name=" + name + ", city=" + city + ", age=" + age + "]";
+	}
+	
+	
+
+}
+
+import java.util.TreeSet;
+
+public class studentApp
+{
+	public static void main(String[] args) 
+	{
+		Student s1=new Student("Rahul","Noida", 23);
+		Student s2=new Student("Kapil","Lucknow", 43);
+		Student s3=new Student("Hemant","Allahabad", 20);
+		Student s4=new Student("Anita","Patna", 28);
+		TreeSet<Student> set=new TreeSet<Student>();
+		set.add(s1);
+		set.add(s2);
+		set.add(s3);
+		set.add(s4);
+		set.add(s2);//trying to check duplicates are allowed or not 
+		//s2 is not repeated
+		for(Student st:set)
+		{
+			System.out.println(st.toString());
+		}
+	}
+
+}
+
+here it will throw error because when compareTo() method of comparable interface is called by JVM to sort this objects , it will show error because our class have not implemented comparable interface.
+
+output
+------
+Exception in thread "main" java.lang.ClassCastException: Student cannot be cast to java.lang.Comparable
+	at java.util.TreeMap.compare(Unknown Source)
+	at java.util.TreeMap.put(Unknown Source)
+	at java.util.TreeSet.add(Unknown Source)
+	at studentApp.main(studentApp.java:12)
+
+
+to override comparable interface
+---------------------------------
+
+
+public class Student2 implements Comparable<Student2>
+{
+	private String name;
+	private String city;
+	protected int age;
+	public Student2(String name, String city, int age)
+	{	
+		this.name = name;
+		this.city = city;
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	@Override
+	public String toString()
+	{
+		return "Student [name=" + name + ", city=" + city + ", age=" + age + "]";
+	}
+	
+	@Override
+	public int compareTo(Student2 st) 
+	{
+		System.out.println("called...");//to check how many times method is called
+//		int n=this.age-st.age;
+//		return n;
+		//to print in descending order
+//		int n=st.age-this.age;
+//		return n;
+		//to arrange in ascending order of name
+		int n=this.name.compareTo(st.name);
+		return n;
+		
+	}
+	
+	
+
+}
+main
+-----
+import java.util.TreeSet;
+
+public class studentApp
+{
+	public static void main(String[] args) 
+	{
+		Student2 s1=new Student2("Rahul","Noida", 23);
+		Student2 s2=new Student2("Kapil","Lucknow", 43);
+		Student2 s3=new Student2("Hemant","Allahabad", 20);
+		Student2 s4=new Student2("Anita","Patna", 28);
+		TreeSet<Student2> set=new TreeSet<Student2>();
+		set.add(s1);
+		set.add(s2);
+		set.add(s3);
+		set.add(s4);
+		
+		for(Student2 ot:set)
+		{
+			System.out.println(ot.toString());
+		}
+	}
+}
+output
+------
+Student [name=Hemant, city=Allahabad, age=20]
+Student [name=Rahul, city=Noida, age=23]
+Student [name=Anita, city=Patna, age=28]
+Student [name=Kapil, city=Lucknow, age=43]
+
+
+output is now sorted with age in ascending order.
+
+
+output2
+--------
+called...
+called...
+called...
+called...
+called...
+Student [name=Kapil, city=Lucknow, age=43]
+Student [name=Anita, city=Patna, age=28]
+Student [name=Rahul, city=Noida, age=23]
+Student [name=Hemant, city=Allahabad, age=20]
+
+output3
+-------
+called...
+called...
+called...
+called...
+called...
+called...
+Student [name=Anita, city=Patna, age=28]
+Student [name=Hemant, city=Allahabad, age=20]
+Student [name=Kapil, city=Lucknow, age=43]
+Student [name=Rahul, city=Noida, age=23]
+

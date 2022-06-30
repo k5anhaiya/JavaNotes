@@ -1,0 +1,192 @@
+Multi_Threading
+----------------
+It is one of the way to achieve multitasking. 
+Multitasking means performing more than one task simultaneously.
+Multitasking programme can invoke/call more than one method at a time.
+
+
+public class tableTask extends Thread 
+{
+	private int num;
+	public tableTask(int num) 
+	{
+		this.num = num;
+	}
+	public void run()
+	{
+		for(int ctr=1;ctr<=10;ctr++)
+		{
+			int ta=num*ctr;
+			System.out.println(num+"*"+ctr+"="+ta);
+		}
+	}
+}
+
+Main
+----
+
+public class App 
+{
+
+	public static void main(String[] args) 
+	{
+		tableTask task1=new tableTask(38);
+		tableTask task2=new tableTask(18);
+		tableTask task3=new tableTask(9);
+		
+		task1.start();
+		task2.start();
+		task3.start();
+
+	}
+
+}
+
+Multi_Threading
+---------------
+it is one of the way to achieve Multi tasking.
+another way to achieve multi tasking is multi processing.but multi processing is heavy weight and multi threading is low weight.hence multi threading is used to achieve multi tasking.
+
+Multitasking means executing more than one task at the same time.
+Mulitasking programme or application can start execution of more than one method at a time.
+
+
+for this programme creates and start more than one threads.per task(method) one thread.
+
+In Java every thread is represented in the form of object.
+we will have to write code to create this object.
+This object should be created from Thread class.
+This object can also be created from the child of thread class.
+
+
+Thread
+------
+it is smallest unit of processing.Each Thread can be treated as small programme.
+
+
+Runnable Interface
+------------------
+Following method of this interface must be overridden by multitasking programme.
+
+
+public void run()
+
+
+This is the method that will be executed by all started threads.
+so we will write multitasking code inside this method.
+
+we can use this as
+------------------
+//first task
+------------
+class Task implements Runnable
+{
+	public void run()
+	{
+		//write code to perform task.
+	}
+}
+
+
+run() method is a method of Task class.
+
+
+//second task
+--------------
+//code to create thread
+Thread th=new Thread(new Task());
+//code to start thread
+th.start();
+
+
+
+public class Task implements Runnable 
+{
+	public void run() 
+	{
+		System.out.println("Run method is called....");
+		for(int i=1;i<=50;i++)
+		{
+			System.out.print(i+",");
+		}
+		System.out.println();
+	}
+
+}
+main
+-----
+
+public class App
+{
+	public static void main(String[] args) 
+	{
+		Task task=new Task();
+		//code to create thread
+		Thread th1=new Thread(task);
+		Thread th2=new Thread(task);
+		Thread th3=new Thread(task);
+		//code to starts all thread
+		th1.start();
+		th2.start();
+		th3.start();
+
+	}
+
+}
+
+This is one of the way of to implement Multithreading.
+
+
+second way
+----------
+Thread class already implemented Runnable interface.
+
+
+class Task extends Thread
+{
+	public void run()
+	{
+		//write code to perform task
+	}
+}
+
+Task th=new Task();   //this object will be treated as thread.
+th.start()
+
+This is Second way of to implement Multithreading.
+
+
+
+example2:
+
+public class Task extends Thread 
+{
+	public void run() 
+	{
+		System.out.println("This is example of Thread.");
+		for(int i=1;i<=40;i++)
+		{
+			System.out.print(i+",");
+		}
+		System.out.println();
+	}
+
+}
+main
+----
+
+public class App
+{
+	public static void main(String[] args) 
+	{
+		Task th1=new Task();
+		Task th2=new Task();
+		Task th3=new Task();
+		//code to starts all thread
+		th1.start();
+		th2.start();
+		th3.start();
+
+	}
+
+}

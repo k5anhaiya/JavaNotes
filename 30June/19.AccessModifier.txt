@@ -1,0 +1,29 @@
+Access modifiers
+----------------
+with the help of this methods are accessable / visible to the other classes.
+
+Access modifiers are used to make accessible or visible properties of current class into other classes.
+
+1)public: visible in all packages. 
+public void show()
+{
+}
+
+2)protected: visible in all classes of current package and only in child classes of other package.
+protected void show()
+{
+}
+
+3)default :   //no need to write the code.   visible in all classes of current package Not visible in other packages.
+void show()
+{
+}
+
+4)private: Not visible in any class.
+private void show()
+{
+}
+
+package
+-------
+it is container of classes.

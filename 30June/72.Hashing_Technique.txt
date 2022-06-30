@@ -1,0 +1,159 @@
+HashSet Collection
+------------------
+How this collection checks duplicacy of the elements..?
+How this collection is unordered
+
+1.HashSet Collection uses instance/object of HashMap class to keep/store elements
+
+2.HashMap creates an array of linked list to keep elements.Capacity of this array is 16 and load factor is 75%
+
+3.Each linked list of the array is called a bucket.It means HashMap Creates 16 buckets.It tries to keep one element into one bucket.But more than one element can be kept into a single bucket.
+
+4.Remember each bucket is identified by index(0 to 15)
+
+5.Before adding element into bucket HashMap finds index of the bucket.For this HashMap calls hashCode() method of object class to identify the bucket index.
+
+6.hasCode() method returns an unique hash code number of the element(element that is to be added into collection)
+
+7.This number is divided by capacity(here 16) and reaminder would be bucket index.
+
+HashSet<String> set=new HashSet<String>();
+set.add("Rahul");
+set.add("Rahul");
+
+
+when rahul is hashnumbe is divided by capacity their will be reaminder and at that reaminder index element will be kept.when again duplicate rahul comes it will get the same index hence it will avoid duplicacy.
+
+This is called hashing technique.
+
+
+import java.util.HashSet;
+
+public class App 
+{
+
+	public static void main(String[] args)
+	{
+		HashSet<Integer> set=new HashSet<Integer>();
+		set.add(10); //hashcode of any integer value is same
+		//because capacity is zero it will be placed in 10th index
+		set.add(16);//this will go in 0 index of bucket
+		set.add(15);//this will go in 15 index of bucket
+		set.add(2);//this will go in 2 index of bucket
+		set.add(85);//this will go in 5 index we aregetting remanider as 5
+		System.out.println(set );
+	}
+
+}
+so output will be 
+-------------------
+[16, 2, 85, 10, 15]
+
+
+8.It calls equal() method of Object class to check duplicacy of elements.This is done in a single bucket.This is called when buckrt of new element has already one or more than one elmenets.
+
+import java.util.HashSet;
+
+public class App 
+{
+
+	public static void main(String[] args)
+	{
+		HashSet<Integer> set=new HashSet<Integer>();
+		set.add(10); //hashcode of any integer value is same
+		//because capacity is zero it will be placed in 10th index
+		set.add(16);//this will go in 0 index of bucket
+		set.add(10);//this will go in 10 index of bucket
+		set.add(2);//this will go in 2 index of bucket
+		set.add(85);//this will go in 5 index
+		System.out.println(set );
+	}
+
+}
+to check the duplicacy equal method() is called when first 10 will be placed at index 10 ,when second 10 tries to insert equal method will be called. and duplicacy will be checked.
+
+
+
+Imp notes
+----------
+1.hash code() method of Objec class generates hash code number using refrence of the element/object
+2.String class has overriden this method.It generates hash code number using value of the String class Object /element.
+
+
+
+
+public class App 
+{
+	public static void main(String[] args) {
+		String s1=new String("Rahul");
+		
+		String s2=new String("Rahul");
+		int num1=s1.hashCode();//This is the hashcode of String class and it tells that hash code will be generated from values.
+		//hence refrence will besaem.
+		int num2=s2.hashCode();
+		System.out.println(num1);
+		System.out.println(num2);
+	}
+
+}
+
+
+ex:
+----
+public class MyString 
+{
+	private String str;
+	public MyString(String str)
+	{
+		this.str=str;
+	}
+	
+}
+public class App 
+{
+	public static void main(String[] args) {
+		MyString s1=new MyString("Rahul");//This time it will call hashcode method of object class
+		//hence it will compare the refrence,it generates the hash code from refrence
+		
+		MyString s2=new MyString("Rahul");
+		int num1=s1.hashCode();
+		int num2=s2.hashCode();
+		System.out.println(num1);
+		System.out.println(num2);
+	}
+
+}
+
+
+ex:
+---
+
+public class MyString 
+{
+	private String str;
+	public MyString(String str)
+	{
+		this.str=str;
+	}
+	public int hashCode()
+		{
+			return str.hashCode();
+		}
+}
+
+public class App 
+{
+	public static void main(String[] args) {
+		MyString s1=new MyString("Rahul");
+		
+		MyString s2=new MyString("Rahul");
+		int num1=s1.hashCode();//we have overridden the method hashcode() so it will call the hashcode method of string class now
+		int num2=s2.hashCode();
+		System.out.println(num1);
+		System.out.println(num2);
+	}
+
+}
+output
+------
+hence output will be different.

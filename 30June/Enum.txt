@@ -1,0 +1,18 @@
+Enum:
+
+it came under 1.5 version.
+
+enum is a group of named constants.
+
+is used to define our own datatypes which is also known as enumarated data types.
+
+
+every enum constant is bydefault public static final.
+
+
+enum beer
+{
+	KF,RC;
+}
+
+here kf is beer object and Rc is also beer object every beer constants are object of beer.

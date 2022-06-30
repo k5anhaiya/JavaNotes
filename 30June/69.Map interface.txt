@@ -1,0 +1,124 @@
+Map interface
+--------------
+It is not child of collection interface so it should not be treated as collection.
+It Keeps element by mapping it with unique key.
+It has only one implementation. Class is HashMap
+
+HashMAp class
+-------------
+It is an implementation of Map interface.
+It is used to keep elements in key-value pair.
+Key will be given by you along with element.
+Key should be unique.
+Element can be duplicate.
+Key-Value pair inside this collection is called an entry.
+This entry will be unordered.
+
+import java.util.HashMap;
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		HashMap<Integer,String> map=new HashMap<Integer, String>();
+		map.put(121, "India");
+		map.put(192, "Australia");
+		map.put(104, "England");
+		map.put(11, "Japan");
+		map.put(408, "China");
+		map.put(409, "China");
+		System.out.println(map);
+
+	}
+}
+example2
+----------
+import java.util.HashMap;
+
+public class App2 
+{
+	public static void main(String[] args) 
+	{
+		HashMap<Integer,String> map=new HashMap<Integer, String>();
+		map.put(121, "India");
+		map.put(192, "Australia");
+		map.put(104, "England");
+		map.put(11, "Japan");
+		map.put(408, "China");
+		map.put(409, "China");
+		System.out.println(map);
+		
+		String str=map.get(121);
+		System.out.println(str);
+	}
+}
+
+LinkedHashMap class
+--------------------
+It is child of HashMap class.It maintains insertion order of entries. 
+
+example
+-------
+import java.util.LinkedHashMap;
+import java.util.HashMap;
+
+public class App2 
+{
+	public static void main(String[] args) 
+	{
+		HashMap<Integer,String> map=new LinkedHashMap<Integer,String>();
+		map.put(121, "India");
+		map.put(192, "Australia");
+		map.put(104, "England");
+		map.put(11, "Japan");
+		map.put(408, "China");
+		map.put(409, "China");
+		System.out.println(map);
+		
+		String str=map.get(121);
+		System.out.println(str);
+	}
+
+}
+output
+-------
+{121=India, 192=Australia, 104=England, 11=Japan, 408=China, 409=China}
+India
+
+
+TreeMap class
+-------------
+It is an implementation of SortedMap interface.
+SortedMap interface is a child of Map interface.
+Collection of TreeMap interface keeps entries in the sorted order of keys.
+
+example
+-------
+import java.util.TreeMap;
+
+
+public class App2 
+{
+	public static void main(String[] args) 
+	{
+		TreeMap<Integer,String> map=new TreeMap<Integer,String>();
+		map.put(121, "India");
+		map.put(192, "Australia");
+		map.put(104, "England");
+		map.put(11, "Japan");
+		map.put(408, "China");
+		map.put(409, "China");
+		System.out.println(map);
+		
+		String str=map.get(121);
+		System.out.println(str);
+	}
+
+}
+output
+------
+{11=Japan, 104=England, 121=India, 192=Australia, 408=China, 409=China}
+India
+
+
+

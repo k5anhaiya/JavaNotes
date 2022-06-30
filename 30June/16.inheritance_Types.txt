@@ -1,0 +1,96 @@
+inheritance need
+-----------------
+1)i want to create extension of the existing class. -->Multilevel inheritance
+2)i want to define mutltiple classes and these classes have several common properties.   --->hybrid inheritance
+
+Types of inheritance
+----------------------
+1)single level inheritance
+2)multi level inheritance
+3)hierarchical inheritance
+4)Multiple inheritance
+5)Hydrid inheritance
+
+single level inheritance
+------------------------ 
+parent class has only one child and no parent.
+child class has only one parent  and no child.
+
+public class AA
+{
+}
+public class BB extends AA
+{
+}
+
+multi level inheritance--------> it should be in hirerachal manner.
+-----------------------
+public class AA
+{
+}
+public class BB extends AA
+{
+}
+public class CC extends BB
+{
+}
+public class DD extends CC
+{
+}
+
+hierarchical inheritance
+-------------------------
+public class AA
+{
+}
+public class BB extends AA
+{
+}
+public class CC extends AA
+{
+}
+public class DD extends AA
+{
+}
+
+Multiple inheritance
+---------------------
+having more than one parent.
+in java it is not possible in classes but it is possible in interfaces.
+child class can not have more than one parent class.
+child interface can have more than one parent interface.
+
+public class AA
+{
+}
+public class BB
+{
+}
+public class CC extends AA,BB     //this will give an error because multiple //parent in classes is not posssible as discussed
+{
+}
+
+                 but in interface it is possible
+		 -------------------------------
+public interface AA
+{}
+public interface BB
+{}
+public interface CC extends AA,BB   //muliple parents interface is allowed.
+{}
+
+Hydrid inheritance
+------------------
+having more than one parent interface and more than one child interface
+in java it is not possible in classes but it is possible in interfaces.
+
+public interface AA
+{}
+public interface BB
+{}
+public interface CC extends AA,BB   //muliple parents interface is allowed.
+{}
+public interface DD extends CC
+{}
+public interface EE extends DD
+{}

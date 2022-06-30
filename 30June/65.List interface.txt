@@ -1,0 +1,23 @@
+List interface
+--------------
+It is a child of Collection interface.So it has inherited all method of collection interface.It has several own methods.Few of them are as follows
+
+1)public void add(int index,E element)
+2)public E remove(int index)
+3)public E get(int index)
+
+implementation of List interface
+---------------------------------
+it has following three implmentation.
+implementatiton class is that class which is implementing an interface
+
+1)ArrayList class
+2)LinkedList class
+3)Vector class
+
+object of these classes is known as list collection.
+List collection has following properties
+1)It is an ordered collection.
+2)it allows duplicacy of elements
+3)it allows multiple null values
+4)it has index based methods.

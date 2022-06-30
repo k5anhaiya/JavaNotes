@@ -1,0 +1,31 @@
+Defining synchronized class
+---------------------------
+make all public method synchronized
+
+if all public methods of a class is synchronized then it a synchronized class.
+
+
+public class AA
+{
+	public synchronized void method1()
+	{
+		//code
+	}
+		
+	public synchronized void method2()
+	{
+		//code
+	}
+	private void method2()
+	{
+		//code
+	}
+	private void method5()
+	{
+		//code
+	}
+	public synchronized void method2()
+	{
+		//code
+	}
+}

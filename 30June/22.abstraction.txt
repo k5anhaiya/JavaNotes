@@ -1,0 +1,310 @@
+Abstraction
+-----------
+Hiding non-essential details of an object/entity from the user is known as abstraction.
+
+public void ShowArea()      //defining a method.
+{
+	code          //-->here we are implenting our method.
+	{
+
+	}
+}
+
+Hiding implementation/body of a method is known as abstraction in programming.
+This is achieved by defining abstract methods.
+
+syntax
+------
+public abstract void show();
+
+abstract modifier is used to define abstract methods.
+
+Abstract method
+---------------
+Those methods which do not have body or implementation are known as abstract methods.
+
+Abstract methods can only be defined inside abstract class or inside interface.
+
+
+
+Abstract class 
+---------------
+A class which can not be intantiated(creation of object) is known as abstract class.
+It means object from abstract class can not be created.
+
+Abstract class should be defined in following two situations 
+1)object of the class can not be created.
+
+public abstract class Shape 
+{
+
+}
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		new shape();      //this will show error because object can not be created.
+	}
+
+}
+
+2)we want to define abstract method inside the class. 
+
+public class Shape 
+{
+	public abstract void ShowArea();  //it will show error because abstarct methods can                                            //only be defined under abstract class.
+}
+
+it should be like this:
+
+public abstract class Shape 
+{
+	public abstract void ShowArea();  //this will not show error.
+}
+
+
+Abstract class is used as parent.
+
+Need:you want to define three classes
+1) Circle class:it must have method to find and show area of circle.
+2) Rectange class:it must have method to find and show area of reactangle.
+3) Triangle class:it must have method to find and show area of triangle.
+
+these classes are related,because these are shapes.these classes should be defined in hierarchical manner.
+
+those classes those are in hierarchichal manner have following advantage:
+1)using these classes in application is easy.
+2)it increases efficiency of the application.
+3)it reduces the complexity of code.
+4)single reference varibale can be created to used to store refrence of these classes object.
+
+common properties(mostly methods) of these classes are defined in parent class.
+
+if common method of these classes has different implementation in each class then this method should be abstract in parent class.
+
+below written code are not in hierarchichal method
+--------------------------------------------------
+
+public class Circle 
+{
+	private int radius;
+	public Circle(int radius)
+	{
+		this.radius=radius;
+	}
+	public void findCircleArea()
+	{
+		double area=3.14*radius*radius;
+		System.out.println("Area of Circle="+area);
+	}
+
+}
+
+public class Rectangle 
+{
+	private int length;
+	private int breadth;
+	public Rectangle(int length,int breadth)
+	{
+		this.length=length;
+		this.breadth=breadth;
+	}
+	public void findRectangleArea()
+	{
+		int area=length*breadth;
+		System.out.println("Area of Rectangle="+area);
+	}
+
+}
+
+
+public class Triangle 
+{
+	private int base;
+	private int height;
+	public Triangle(int base,int height)
+	{
+		this.base=base;
+		this.height=height;
+	}
+	public void findTrianlgeArea()
+	{
+		double area=0.5*base*height;
+		System.out.println("Area of Traingle="+area);
+	}
+
+}
+
+import java.util.Scanner;
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		Circle  c1;
+		Rectangle r1;
+		Triangle t1;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter 1 for Circle");
+		System.out.println("Enter 2 for Rectangle");
+		System.out.println("Enter 3 for Triangle");
+		System.out.println("---------------------------");
+		System.out.println("Enter your choice");
+		int ch=sc.nextInt();
+		if(ch==1)
+		{
+			System.out.println("Enter radius=");
+			int r=sc.nextInt();
+			c1=new Circle(r);
+			c1.findCircleArea();
+		}
+		if(ch==2)
+		{
+			System.out.println("Enter length=");
+			int l=sc.nextInt();
+			System.out.println("Enter breadth=");
+			int b=sc.nextInt();
+			r1=new Rectangle(l,b);
+			r1.findRectangleArea();;
+		}
+		if(ch==3)
+		{
+			System.out.println("Enter base=");
+			int b=sc.nextInt();
+			System.out.println("Enter height=");
+			int h=sc.nextInt();
+			t1=new Triangle(b,h);
+			t1.findTrianlgeArea();
+		}
+	}
+
+}
+
+Note: All abstract methods of parent class must be overriden by child classes.
+
+above code  should allowed in this manner
+
+//this Shape class would be parent of all classes such as circle,rectangle,triangle
+
+public abstract class Shape 
+{
+	//this method is abstract here because implementation of this method would be different 
+	//in each shape.
+	public abstract void findShapeArea();
+}
+
+
+public class Circle extends Shape
+{
+	private int radius;
+	public Circle(int radius)
+	{
+		this.radius=radius;
+	}
+	public void findShapeArea()
+	{
+		double area=3.14*radius*radius;
+		System.out.println("Area of Circle="+area);
+	}
+
+}
+
+public class Rectangle extends Shape 
+{
+	private int length;
+	private int breadth;
+	public Rectangle(int length,int breadth)
+	{
+		this.length=length;
+		this.breadth=breadth;
+	}
+	public void findShapeArea()
+	{
+		int area=length*breadth;
+		System.out.println("Area of Rectangle="+area);
+	}
+
+}
+
+
+public class Triangle extends Shape
+{
+	private int base;
+	private int height;
+	public Triangle(int base,int height)
+	{
+		this.base=base;
+		this.height=height;
+	}
+	public void findShapeArea()
+	{
+		double area=0.5*base*height;
+		System.out.println("Area of Traingle="+area);
+	}
+
+}
+
+import java.util.Scanner;
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		Shape sh=null;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter 1 for Circle");
+		System.out.println("Enter 2 for Rectangle");
+		System.out.println("Enter 3 for Triangle");
+		System.out.println("---------------------------");
+		System.out.print("Enter your choice=");
+		int ch=sc.nextInt();
+		if(ch==1)
+		{
+			System.out.print("Enter radius=");
+			int r=sc.nextInt();
+			sh=new Circle(r);
+			
+		}
+		else if(ch==2)
+		{
+			System.out.print("Enter length=");
+			int l=sc.nextInt();
+			System.out.print("Enter breadth=");
+			int b=sc.nextInt();
+			sh=new Rectangle(l,b);
+			
+		}
+		else if(ch==3)
+		{
+			System.out.print("Enter base=");
+			int b=sc.nextInt();
+			System.out.print("Enter height=");
+			int h=sc.nextInt();
+			sh=new Triangle(b,h);	
+		}
+		sh.findShapeArea();
+	}
+
+}
+
+when method should be abstracted.
+when method exists in each child and implementation of the method is different in each child then this method should be abstract in parent class.
+
+point1: Abstract class can be defined without defining abstract methods inside class
+point2: Abstract method can not be defined without defining abstract class
+point3: Abstract class can have both abstract and non-abstract methods. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

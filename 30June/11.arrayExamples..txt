@@ -1,0 +1,113 @@
+Q-Declare an array and print all the elements of that array.
+A-
+public class App
+{
+	public static void main(String[] args)
+	{
+	int [] num={10,20,30,40,50,60,70,80};
+	for(int i=0;i<num.length;i++)
+		{
+			System.out.println(num[i]);
+		}	
+	}	
+}
+
+Q-Declare an array of any size and print it and again reverse print it.
+A-
+public class App2
+{
+	public static void main(String[] args) 
+	{
+		int [] num= {10,20,30,40,50,60,70};
+		/*normal printing of array*/
+		for(int i=0;i<num.length;i++)
+			System.out.print(num[i]+",");
+			System.out.println();
+		//print the array in reverse order
+		for(int i=num.length-1;i>=0;i--)
+		{
+			System.out.print(num[i]+",");
+		}
+	}
+}
+
+Q-Find the sum of all index of an array ?
+A-
+
+public class extraFroud 
+{
+		public static void main(String[] args)
+		{
+			int [] a ={10,20,30,40,50};
+			int sum=a[0];
+			for(int i=1;i<a.length;i++)
+			{
+				sum=sum+a[i];
+			}
+			System.out.println("Sum Result="+sum);
+		}
+}
+
+Q-Copy value of array x into array y?
+A-
+public class App
+{
+	public static void main(String [] args)
+	{
+	int [] x={10,20,30,40,50};
+	int [] y= new int[x.length];
+	y[0]=x[0];
+	y[1]=x[1];
+	y[2]=x[2];
+	y[3]=x[3];
+	y[4]=x[4];
+	for(int i=0;i<x.length;i++)
+	{
+	System.out.println(y[i]);
+	}
+	}
+}
+
+with the use of loop we can write the same code in following ways:
+
+public class extraFroud 
+{
+	public static void main(String [] args)
+	{
+	int [] x={10,20,30,40,50};
+	int [] y= new int[x.length];
+		for(int i=0;i<x.length;i++)
+		{
+			y[i]=x[i];
+			System.out.println(y[i]);
+		}
+	}
+}
+
+Q-write the code to swap value at index[i] and index[j]
+A-
+public class extraFroud 
+{
+	public static void main(String[] args)
+	{
+		int [] x= {10,20,30,40,50};
+		int j=x.length-1;
+		int i=0;
+		while(i<=j)
+		{
+		int t=x[i];
+		x[i]=x[j];
+		x[j]=t;
+		i++;
+		j--;
+		}
+		for(int c=0;c<x.length;c++)
+		{
+			System.out.println(x[c]);
+		}
+	}
+}
+
+
+
+

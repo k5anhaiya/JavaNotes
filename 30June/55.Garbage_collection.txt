@@ -1,0 +1,14 @@
+Garbage Collection
+--------------------
+
+Generally in java execution starts from main thread and from main thread you can create n numbers of thread, whenever you create an object either in main class or in child class. objects will be created inside the heap area of memory. 
+
+
+those objects which are non-refrenced(their is no refrence variable of the object) object or the objects which are not in use by the memory so those are storing extra memory in the heap meory area.these objects are not of use of programme hence these must be treated as garbage and will be collected by garbage collector thread. so that garbage collector will delete the memory space for that object which are non refreced and reacquire the space in the memory and make it available for the next object.
+
+
+garbage collector thread is a daemon thread .garbage collector thread provides the service in the backend.JVM will create the garbage collector thread.JVM will start the gc(garbage collector thread) and stop it whenever required. As a programmer we do not need to write code for working of gc(garbage collector thread).
+
+Daemon thread
+--------------
+Daemon thread in Java is a low-priority thread that runs in the background to perform tasks such as garbage collection.

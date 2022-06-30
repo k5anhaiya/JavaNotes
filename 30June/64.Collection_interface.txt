@@ -1,0 +1,120 @@
+
+Our program will use collection to store refrence of objects.
+As We know program create objects to store data.
+so we can Treat object as a container of data.
+programme keeps refrence of these objects.
+
+
+
+Collection interface
+---------------------
+It is a child of Iterable interface.
+All collection classes implements Collection interface either directly or indirectly.
+Few collection classes are as follows:
+ArrayList,LinkedList,Vector,HashSet,TreeSet etc.
+
+
+these classes have overriden all methods of collection interface
+These methods are very useful.
+few method of collection interface are as follows.
+
+
+1)public bollean add(E element): it adds refrence of the given object in the collection, it will add the elements
+
+ArrayList<String> list1=new ArrayList<String>();  //here E is String which is of generic 						//Type , it will create arraList of String 						//type					
+ArrayList list2=new ArrayList();	//here their is no E hence it will create an object 					//of object class from this code , this will create 				//ArrayList of object type, i.e heterogeneous
+
+
+Note:container of data is object and container of object is collection.
+
+
+		//code to create collection
+		//This collection will be container of String Class objects.
+		ArrayList<String> list1=new ArrayList<String>(); 
+		list1.add("Kanhaiya Kumar");//for String object of String class will created and refrence will be returned to add method in java this is called autoboxing
+		
+		//code to create collection
+				//This collection will be container of String Class objects.
+				ArrayList<Integer> list2=new ArrayList<Integer>(); 
+				list2.add(90);//for 90 object of integer class will created and refrence will be  returned to add method in java this is called autoboxing
+				//add method will be get refrence of String class object and this refrence will be stored in collection
+
+
+
+example:
+--------
+import java.util.ArrayList;
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList<String> list=new ArrayList<String>();
+		list.add("Rahul");
+		list.add("Ravi");
+		list.add("Hemant");
+		list.add("Kapil");
+		list.add("Ankita");
+		
+		for(String str:list)
+		{
+			System.out.println(str);  //here str will keep refrence of the objects created for string classs
+					//when str is printed it will automaticall call to string method of object class.
+			//such as System.out.println(str.toString());
+		}
+	}
+
+}
+
+
+Example to understand toString
+-------------------------------
+import java.util.ArrayList;
+
+public class CustomerApp2 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList<customer> list=new ArrayList<customer>();
+		list.add(new customer("Rahul","Noida"));
+		list.add(new customer("Ravi","Allahabad"));
+		list.add(new customer("Kuldeep", "Lucknow"));
+		list.add(new customer("suman", "varanasi"));
+
+		
+		for(customer str:list)
+		{
+			System.out.println(str);  //here str.toString will be called 
+			 							//automatically after compilation will store object refrence of customer class object
+			//object will always return classname@hexadecimal value.
+		}
+	}
+
+}
+output
+------
+customer@15db9742
+customer@6d06d69c
+customer@7852e922
+customer@4e25154f
+
+
+
+
+2)public boolean remove(E element)
+3)public boolean contains(E element)
+4)public boolean isEmpty()
+5)public int Size()
+6)public void clear()
+7)				
+
+
+
+
+
+Child of Collection interface
+--------------------------------
+it has following three child interfaces
+1)List interface
+2)set interface
+3)Queue interface

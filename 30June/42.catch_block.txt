@@ -1,0 +1,183 @@
+Catch Block
+-----------
+
+A try block can have multiple catch blocks.
+
+
+This programme will work fine this is a part of unchecked exceptions.
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Execution begins.....");
+		
+		int [] x= {10,20,30,40,50};
+		int y=2;
+		try 
+		{
+			int z=x[0]/y;
+			System.out.println(z);
+			
+		}
+		catch (ArithmeticException ev) 
+		{
+			System.out.println(ev);
+		}
+		catch (ArrayIndexOutOfBoundsException ev) 
+		{
+			System.out.println(ev);
+		}
+		
+		
+		System.out.println("Execution Ends.....");
+		
+	}
+
+}
+
+
+but this will show ArithmeticException
+
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Execution begins.....");
+		
+		int [] x= {10,20,30,40,50};
+		int y=0;
+		try 
+		{
+			int z=x[0]/y;
+			System.out.println(z);
+			
+		}
+		catch (ArithmeticException ev) 
+		{
+			System.out.println(ev);
+		}
+		catch (ArrayIndexOutOfBoundsException ev) 
+		{
+			System.out.println(ev);
+		}
+		
+		
+		System.out.println("Execution Ends.....");
+		
+	}
+
+}
+Execution begins.....
+java.lang.ArithmeticException: / by zero
+Execution Ends.....
+
+
+
+but this will show ArrayIndexOutOfBound
+
+
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Execution begins.....");
+		
+		int [] x= {10,20,30,40,50};
+		int y=2;
+		try 
+		{
+			int z=x[6]/y;
+			System.out.println(z);
+			
+		}
+		catch (ArithmeticException ev) 
+		{
+			System.out.println(ev);
+		}
+		catch (ArrayIndexOutOfBoundsException ev) 
+		{
+			System.out.println(ev);
+		}
+		
+		
+		System.out.println("Execution Ends.....");
+		
+	}
+
+}
+Execution begins.....
+java.lang.ArrayIndexOutOfBoundsException: Index 6 out of bounds for length 5
+Execution Ends.....
+
+
+
+but this will show ArrayIndexOutOfBound or ArithmeticIndexException but it will catch ArrayIndexOutOfBound first because we need to take the data from array first.
+
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Execution begins.....");
+		
+		int [] x= {10,20,30,40,50};
+		int y=0;
+		try 
+		{
+			int z=x[6]/y;
+			System.out.println(z);
+			
+		}
+		catch (ArithmeticException ev) 
+		{
+			System.out.println(ev);
+		}
+		catch (ArrayIndexOutOfBoundsException ev) 
+		{
+			System.out.println(ev);
+		}
+		
+		
+		System.out.println("Execution Ends.....");
+		
+	}
+
+}
+
+
+
+1)Exception created---object is created of the class ArrayIndexOutOfBounds
+2)Exception thrown--refrence of the created object is send to the programme.
+3)Exception catched.
+
+
+parent of all Exeption classes(Those exception that can be caught) is Exception.
+
+
+
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Execution begins.....");
+		
+		int [] x= {10,20,30,40,50};
+		int y=0;
+		try 
+		{
+			int z=x[6]/y;
+			System.out.println(z);
+			
+		}
+		catch (Exception ev) 
+		{
+			System.out.println(ev);
+		}
+		System.out.println("Execution Ends.....");
+		
+	}
+
+}
+

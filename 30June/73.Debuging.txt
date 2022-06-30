@@ -1,0 +1,27 @@
+Debug in Java
+--------------
+
+prequisites: installed eclipse and Basics of Java.
+
+
+Debugging is the processs of finding and resolving defects or problems within a computer program that prevent correct operation of computer software or a system.
+
+Better functional programming.
+
+Using Eclipse IDE
+-----------------
+Step Into : to move inside inside a method.
+
+Step Over:  to move to nextline of execution of code.
+
+Step Out/return: to move outisde the function or method. to return to the same method
+
+terminate-> to terminate the debugger
+
+Inspect->(ctrl+shift+I)  to inspect a single line of code ,select the line that you want to debug.
+
+conditional -->right click on break point break properties go to conditional i==50; press ok then it will run the loop to upto 49 times.
+
+Exploring Variables in Debug Perspective.
+
+

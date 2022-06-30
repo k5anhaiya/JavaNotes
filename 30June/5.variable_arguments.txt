@@ -1,0 +1,12 @@
+Variable arguments
+-------------------
+
+these are the parameters which are passed in methods.
+
+variable parameters can store or pass any number of variables.
+
+Note:if a method having more than one arguments then variable arguments must be defined last.
+
+it can passed as
+ String ... A
+

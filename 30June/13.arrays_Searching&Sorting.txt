@@ -1,0 +1,217 @@
+Searching and Sorting in Arrays:
+--------------------------------
+there are two types of Searches in the arrays.
+1. Linear Search.
+2. Binary Search.  --> it is applicable when value in the array is sorted.
+
+Linear Search:
+--------------
+Q-WAP to search the roll number inside the list.
+A-
+import java.util.Scanner;
+public class LinearSearch 
+{
+	public static void main(String[] args) 
+	{
+		int [] list= {12345,11223,12233,44556,10101,11022,11993,45678};
+		Scanner sc=new Scanner(System.in);//system.in is object of BufferedInputStream
+		int rn=sc.nextInt();
+		boolean found=false;
+		for(int x:list)
+		{
+			if(rn==x)
+			{
+				found=true;
+				System.out.println("Roll number exists in the list");
+				break;
+			}
+		}
+		if(!found)
+		{
+			System.out.println("Roll Number not available in the list");
+		}
+	}
+
+}
+
+Q-WAP to convert numbers to word.
+A-
+import java.util.Scanner;
+
+public class Trail 
+{
+	public static String [] x= {"","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteeen","nineteen"};
+	public static String [] y= {"","","twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety"};
+	public static void call(int n)
+	{
+		if(n>=1 && n<=19)
+		{
+			System.out.print(x[n]+" ");
+		}
+		if(n>=20 && n<=99)
+		{
+			System.out.print(y[n/10]+" "+x[n%10]+" ");
+		}
+		if(n>=100 && n<=999)
+		{
+			call(n/100);
+			System.out.print("hundred"+" ");
+			call(n%100);
+		}
+		if(n>=1000 && n<=99999)
+		{
+			call(n/1000);
+			System.out.print("thousand"+" ");
+			call(n%1000);
+		}
+		if(n>=100000 && n<=9999999)
+		{
+			call(n/100000);
+			System.out.print("lakh"+" ");
+			call(n%100000);
+		}
+	}
+	public static void main(String[] args) 
+	{
+		System.out.print("Enter any number=");
+		Scanner obj=new Scanner(System.in);
+		int n=obj.nextInt();
+		if(n>=10000000 && n<=999999999)
+		{
+			call(n/10000000);
+			System.out.print("crore"+" ");
+			call(n%10000000);
+		}
+		else 
+		{
+			call(n);
+		}
+	}
+}
+
+Q-WAP to show largest number in the array and smallest number in the array sum, average of the array.
+A-
+public class Trial 
+{
+	public static void main(String[] args) 
+	{
+		int [] num= {10,567,39,890,6,5789,234,5345,10,0,25,-1,56,-25};
+		int maximum=num[0];
+		int minimum=num[0];
+		int sum=num[0];
+		float average=0;
+		for(int i=1;i<num.length;i++)
+		{
+			if(maximum<num[i])
+			{
+			maximum=num[i];	
+			}
+			else
+			{
+				minimum=num[i];
+			}
+			sum=sum+num[i];
+			average=sum/num.length;
+		}
+		System.out.println("Largest Number="+maximum);
+		System.out.println("Smallest Number="+minimum);
+		System.out.println("Sum of all numbers in the array="+sum);
+		System.out.println("Avergae of all numbers="+average);
+	}
+
+}
+
+Q-WAP to display all the numbers of the array but all even number should be displayed first then all odd numbers should be displayed.
+A-
+public class Display
+{
+	public static void main(String[] args) 
+	{
+	int [] num= {10,45,38,12,68,55,39,11,12,89};
+	//Display all the numbers of the array,but all even number should be displayed first
+	//then all odd number should be displayed.
+	for(int n:num)
+	{
+		if(n%2==0)
+			System.out.println(n);
+	}
+	for(int n:num)
+	{
+		if(n%2!=0)
+			System.out.println(n);
+	}
+	}
+}
+
+we use equal function while need to compare the string value.
+
+syntax: this is the method of string case.
+(str.equals(name))   -->used when we need to match the string exactly.
+
+(str.equalsIgnoreCase(name))   -->used when we need to match the string by ignoring the upper case.
+
+
+Q-WAP to find the name in the list.                  
+A-
+import java.util.Scanner;
+
+public class trial 
+{
+	public static void main(String[] args) 
+	{
+		String [] list= {"kanhaiya","manish","Raja","roushan","rajan","Mohan","sohan","ram"};
+		System.out.println("please enter any name to check in the list=");
+		Scanner sc=new Scanner(System.in);
+		String name=sc.nextLine();
+		boolean found=false;
+		for(String str:list)
+		{
+			if(str.equals(name))
+			{
+				found=true;
+				System.out.println(name+" found in the list.");
+				break;
+			}
+		}
+		if(!found)
+		{
+			System.out.println("name is not in the list.");
+		}
+	}
+
+}
+
+                                                     OR
+
+import java.util.Scanner;
+
+public class trial 
+{
+	public static void main(String[] args) 
+	{
+		String [] list= {"kanhaiya","manish","Raja","roushan","rajan","Mohan","sohan","ram"};
+		System.out.println("please enter any name to check in the list=");
+		Scanner sc=new Scanner(System.in);
+		String name=sc.nextLine();
+		boolean found=false;
+		for(String str:list)
+		{
+			if(str.equalsIgnoreCase(name))
+			{
+				found=true;
+				System.out.println(name+" found in the list.");
+				break;
+			}
+		}
+		if(!found)
+		{
+			System.out.println("name is not in the list.");
+		}
+	}
+
+}
+
+
+
+
+

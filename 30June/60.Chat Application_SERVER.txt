@@ -1,0 +1,173 @@
+NEXT CLASS
+
+Building public chatting application
+------------------------------------
+
+1)Build chat server
+--------------------
+Role of this program should be 
+a)Accepting each client's request
+b)Creating socket for each client
+//code will be written as
+Socket soc=Server.accept();
+//accept methods accept client connection request and creates as well as returns socket for the client.
+c)Reading message from client socket and writing this message to each cilents socket.This operation should be done at a time.Multithreading should be implemented: it means reading message from the socket and writing it to all sockets will be done by thread.
+
+for above task server will create and start thread for each client.This thread mmust have socket of the current client and socket of the all client
+c)Adding socket into collection
+d)Creating thread for each client
+e)Giving socket of the client and collection of socket to the thread
+f)Starting thread
+
+Role of thread
+--------------
+As we know server is always multitasking.So server will  creates and starts separate thread for each client.Role of this thread should be as
+a)Reading message from the client (Client for which it is created) socket
+b)Writing this message to all sockets
+
+
+
+programme
+----------
+
+
+import java.net.*;
+import java.util.ArrayList;
+
+public class ChatServer 
+{
+	private ServerSocket server; //here ServerSocket is the class & server is refrence variable.
+	private ArrayList<Socket> list=new ArrayList<Socket>();
+	
+	public ChatServer()
+	{
+		try 
+		{
+			server=new ServerSocket(2001);
+			System.out.println("Server Started....");
+			
+			while(true)
+			{
+				//code to accept client request and creating socket for the client
+				Socket soc=server.accept();
+				System.out.println("Client Request Accepted...");
+				//code to add socket into colleciton.
+				list.add(soc);
+				//code to create thread
+				ChatThread th=new ChatThread(soc,list);
+				th.start();
+			}
+			
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}
+		
+	}
+	public static void main(String[] args) 
+	{
+		new ChatServer();
+
+	}
+
+}
+
+
+creating thread class
+---------------------
+import java.net.*;
+import java.util.*;
+import java.io.*;
+
+import java.io.*;
+
+public class ChatThread extends Thread 
+{
+	private Socket soc;
+	private ArrayList<Socket> list;
+	public ChatThread(Socket sc,ArrayList<Socket> al)
+	{
+		soc=sc;
+		list=al;
+	}
+	public void run()
+	{
+		while(true)
+		{
+			try 
+			{
+				//code to read message from clients socket
+				DataInputStream dis=new DataInputStream(soc.getInputStream());
+				String message=dis.readUTF();
+				//code to write message to all sockets
+				for(Socket ss:list)
+				{
+					DataOutputStream dos=new DataOutputStream(ss.getOutputStream());
+					dos.writeUTF(message);
+				}
+			} 
+			catch (Exception e) 
+			{
+				System.out.println(e);
+			}
+		}
+	}
+}
+
+ 
+2)Build chat client
+--------------------
+import java.net.*;
+import java.util.Scanner;
+import java.io.*;
+public class ChatClient 
+{
+	private Socket soc; 
+	public ChatClient()
+	{
+		try 
+		{
+			soc=new Socket("localhost",2001);
+			new ReadMessageThread().start();
+			Scanner sc=new Scanner(System.in);
+			System.out.print("Enter you name:");
+			String name=sc.nextLine();
+			DataOutputStream dos=new DataOutputStream(soc.getOutputStream());
+			while(true)
+			{
+				String str=sc.nextLine();
+				dos.writeUTF(name+" Said:"+str);
+			}
+		}  
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}
+	}
+	class ReadMessageThread extends Thread
+	{
+		public void run()
+		{
+			try
+			{
+			DataInputStream dis=new DataInputStream(soc.getInputStream());
+			while(true)
+			{
+				String message=dis.readUTF();
+				System.out.println(message);
+			}
+			}
+			catch (Exception e)
+			{
+				System.out.println(e);
+			}
+		}
+	}
+
+	public static void main(String[] args) 
+	{
+		new ChatClient();
+	}
+
+}

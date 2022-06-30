@@ -1,0 +1,25 @@
+Method overloading:
+-------------------
+Defining more than one same name methods inside any class is known as method overloading.
+
+one of the following rules must be followed in method over loading
+1)number of parameter should be different
+
+public void add(int x,int y)
+public void add(int x,int y, int z)
+
+2)datatype of parameter should be different
+
+public void add(int x,int y)
+public void add(int x,float y)
+public void add(float x,float y)
+
+3)sequence of parameter should be different
+
+public void add(float x,int y)
+public void add(int x,float y)
+
+Note: Return type and access modifiers don't play any role in method overloading.
+
+Note: Both method over loading and over riding reduces the complexity of code.
+

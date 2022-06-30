@@ -1,0 +1,178 @@
+JDBC API
+--------
+This API has several interfaces.Few of them are as follows
+1)Driver interface
+2)Connection interface
+3)Statement interface
+4)PreparedStatement interface
+5)ResultSet interface
+etc
+These interfaces are given in java.sql package.
+As we Know interface has only methods not implementation of methods.methods of implementation of these methods are done inside classes.
+
+above interface are implemented by database vendors into classes.
+
+Remember our program will call methods of these interfaces and we will write code to call these methods.
+
+to check the methods inside the driver interface we need to open cmd and use command
+javap java.sql.Driver
+
+
+Driver interface
+-----------------
+It has several methods .One of them is as follows
+
+public Connection connect(String url,Properties p)
+
+This method will make connection with database and create and return object of connection interface to the caller.
+
+Remember implementatiton of this methods is given by database vendors.
+
+The class in which this method is overridden is called driver class.
+
+Our programme will call this method for database connection.
+we do not need to write code to call this method.
+Code to call this method is already defined in getconnection() method of DriverManager class.
+
+It(DriverManager class) is JDBC API class in java.sql.package 
+get connection() is a overloaded static method of DriverManager class.
+
+so our programme will call getconnection() method of DriverManager class.
+getconnection() method will call connect() method
+
+we need to write code to call getConnection method.This method is overloaded in DriverManager class and as follows.
+
+public static Connection getConnection(String url,String username,String password)
+
+Note: since connect() method will be called by getConnection() method of DriverManager class,so This class must have refrence of driver class object.
+
+Note: onloading every driver class created and objects of itself and gives this object DriverManager class.
+
+Connection con=DriverManager.getConnection("","","");
+
+before above code we need to write code to load driver class.
+
+Class.forName("com.mysql.cj.jdbc.Driver");
+
+
+Remember add mysql-connector.jar file into your project .This file Contains databse vendor code.
+
+
+import java.sql.*;
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		try 
+		{
+			//code to load driver class
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			//code to create connection object
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost/mydatabase","root","mysql");
+			System.out.println("Connected...");
+
+		} 			catch (Exception ex) 
+		{
+			System.out.println(ex);
+		}
+	}
+
+}
+
+
+
+creating statement object
+-------------------------
+this Object is required to execute SQL queries.
+Following two interface are given in java.sql.package for this object
+
+1)Statement interface
+2)PreparedStatement interface
+
+We can call one of the following method of connection interface to create statement object
+
+1) public Statement createStatement(): It will create an return object of Statement interface.Object of this interface is required to execute sql non-parameterized queries.Such as.Few non parameterized queries are as follows
+
+1)select * from tablename
+2)delete from tablename
+3)create table tablename(....)
+etc
+
+statement st=cn.createStatement();
+
+2)public PreparedStatement(String query): It will create and return object of PreparedStatement interface.Object of this interface is required to execute sql parameterized queries.Such as.Few parameterized queries are as follows
+
+1)select * from customerinfo where cid=101
+2)delete from customerinfo where cid=101
+3)insert into customerinfo values(101,'kadasdf','dfsd',23)
+4)update customerinfo set name='hhh',age='34' where cid=101
+etc
+
+PreparedStatement ps=cn.prepareStatement(query);
+
+
+
+import java.sql.*;
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		try 
+		{
+			//loading driver
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			//creating connection object
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost/mydatabase","root","mysql");
+			System.out.println("Connected...");
+			String query="create table productinfo(pid int primary key,name varchar(30),price int)";
+			//creating statement object
+			Statement st=con.createStatement();
+			//executing query
+			st.execute(query);
+			//closing connection
+			con.close();
+
+		} 			
+		catch (Exception ex) 
+		{
+			System.out.println(ex);
+		}
+	}
+}
+
+
+
+
+import java.sql.*;
+import java.util.Scanner;
+public class App2 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		try 
+		{
+	
+			Class.forName("com.mysql.cj.jdbc.Driver");
+	
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost/mydatabase","root","mysql");
+			System.out.println("Connected...");
+			String query="delete from productinfo where productid=?";
+			PreparedStatement ps=con.prepareStatement(query);
+			System.out.println("Enter product id:");
+			int v1=sc.nextInt();
+			ps.setString(1, String.valueOf(v1));
+			int n=ps.executeUpdate(); //this method will return 0 or -1 if the product id will not match
+			if(n>=1)
+				System.out.println("Record deleted....");
+			else {
+				System.out.println("Record doesnot exist");
+			}
+		} 			
+		catch (Exception ex) 
+		{
+			System.out.println(ex);
+		}
+	}
+}
+

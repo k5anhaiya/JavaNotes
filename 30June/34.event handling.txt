@@ -1,0 +1,150 @@
+Event handling
+--------------
+performing tasks by the application on user interaction is known as event.
+for this we need to write code. code written to achieve this is called event handling.
+
+event handling is defined in the class java.awt.event*
+
+
+1)Choose event Source from component list:The component with which user will interact.
+2)Define event listner:This would be a class.In this class we need to write code to perform task on user's interaction.
+This class should be defined by implementing one of the following interfaces.
+a)ActionListener interface
+b)MouseListener interface
+C)KeyListener interface
+etc
+3)Register event listener with event source.
+
+
+Note:Code written inside a method will executed each time that method will be called. either by current class method or by other class method Code to call method must be written
+
+Remember method of any class not be called without object of that class.
+It means caller of the method must be object of the class in which method is defined.
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class App 
+{
+	JFrame frame=new JFrame("Event Demo");
+	JPanel pa=new JPanel();
+	JButton bt1=new JButton("Red Background");  //bt1 will be event source
+	JButton bt2=new JButton("Green Background");  //bt2 will be event source
+	
+	public App()
+	{
+		frame.setSize(500,400);
+		frame.setDefaultCloseOperation(3);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		frame.add(pa);
+		pa.setBackground(Color.yellow);
+		pa.add(bt1);
+		pa.add(bt2);
+		//Giving object of RedListener class to button bt1
+		bt1.addActionListener(new RedListener());
+		//Giving object of GreenListener class to button bt2
+		bt2.addActionListener(new GreenListener());
+		frame.setVisible(true);
+	}
+	//Defining event listener
+	class RedListener implements ActionListener
+	{
+		//we do not need to write code to call this method
+		//This method will be called by event source (component with which event listener is registered)
+		public void actionPerformed(ActionEvent evt) 
+		{
+			pa.setBackground(Color.red);	
+		}	
+	}
+	class GreenListener implements ActionListener
+	{
+		//we do not need to write code to call this method
+		//This method will be called by event source (component with which event listener is registered)
+		public void actionPerformed(ActionEvent evt) 
+		{
+			pa.setBackground(Color.green);	
+		}	
+	}
+	public static void main(String[] args) 
+	{
+		new App();
+	}
+
+}
+
+
+
+Note
+----
+public void actionPerformed(ActionEvent evt) 
+
+
+here actionPerformed method is predefined method will be automatically called on button click after registering the button.
+
+important
+---------
+1)If type of parameter is a class, then caller of the class must pass object of that class to the method.
+
+public void actionPerformed(ActionEvent evt) 
+{
+	pa.setBackground(Color.red);	
+}
+
+//in this method caller(bt1&bt2) will pass object of ActionEvent class
+
+
+
+
+use of Mouse Listener
+---------------------
+
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
+public class App 
+{
+	JFrame frame=new JFrame("Mouse");
+	JPanel panel=new JPanel();
+	JLabel la=new JLabel("India is great country.");
+	public App()
+	{
+		frame.setSize(500,400);
+		frame.setDefaultCloseOperation(3);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		frame.add(panel);
+		panel.add(la);
+		la.setFont(new Font("Lucida Calligraphy",0,25));
+		la.addMouseListener(new TextListener());
+		frame.setVisible(true);
+	}
+	class TextListener implements MouseListener
+	{
+		String old;
+		public void mouseClicked(MouseEvent evt) {}
+		public void mousePressed(MouseEvent evt) {}
+		public void mouseReleased(MouseEvent evt) {}
+		public void mouseEntered(MouseEvent evt)
+		{
+			old=la.getText();
+			la.setText("Bharat is Mahan");
+			la.setForeground(Color.red);
+		}
+		public void mouseExited(MouseEvent evt) 
+		{
+			la.setText(old);
+			la.setForeground(Color.black);
+		}	
+	}
+
+	public static void main(String[] args) 
+	{
+		new App();
+	}
+
+}

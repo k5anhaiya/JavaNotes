@@ -1,0 +1,32 @@
+String Handling
+---------------
+Set of Character is known as String.
+
+'a','8','*' these are characters and combining all these we will get String.
+
+"Rehan Ahmad" is a String this String consists of  10 character's.
+"9572431005" is a String.
+"5kanhaiyakumar@gmail.com" is a String.
+
+Programme must create char type array to store String.
+In Java we do not need to write code to create this array.
+In Java this code is predefined.
+Following three class have this code
+1)String class
+2)StringBuffer class
+3)StringBuilder class
+
+So rathe than writing code to create array, we need to write code to create object of one of the above class.
+
+String str1=new String("Cetpa");
+StringBuffer str2=new StringBuffer("Infotech");
+StringBuilder str3=new StringBuilder("Noida");
+
+All above objects will create char type array to keep String.
+
+
+
+important: Here cetpa is stored in a char type array this array refrence  is stored in object of string class and refrence of that object of string class is stored in str1.
+
+
+with the help of toString method it is calling the array elements automatically.

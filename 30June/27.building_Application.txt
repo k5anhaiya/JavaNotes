@@ -1,0 +1,138 @@
+Builiding Application:
+----------------------
+1)user interface/presentation layer
+2)Business layer
+
+User interface
+--------------
+it can be of two types
+1)CUI: commandline user interface: Using Scanner class and system.out is example of CUI
+2)GUI: graphical user interface: it is more friendly than CUI.
+
+
+Building GUI
+-------------
+Every GUI consists of several components.
+We need to create components and assemble then as per our requirments.
+
+components could be 
+button,label,textbox,passwordbox,dropdrownbox,checkbox,radiobutton,frame,etc
+Every component is represented in the form of object.
+We need to write code to create these object.
+for creation of any object we need 
+1)Class
+2)Constructor of that class
+
+
+Component			Class
+---------			-----
+button				JButton
+label				JLabel
+text box			JTextField
+password box			JPasswordField	
+checkbox			JCheckBox
+radiobutton			JRadioButton
+frame				JFrame
+
+etc
+
+frame would be our main component of GUI.
+Every component class has atleast following two constructor:
+1)Default Constructor
+2)Constructor having one String type parameter   or parameterized constructor.
+
+public class AA
+{
+	public AA()
+	{
+		//command	
+	}
+	public AA(String str)
+	{
+		//command
+	}
+	
+}
+
+//These classes are predefined.
+javax.swing package contains these
+
+Remember we need to call methods of these classes to change the default properties of these components
+properties such as 
+------------------
+1)Size:We can call following method to change the size
+public void setSize(int width,int height)
+
+2)Location:We can call following method to change the location
+public void setLocation(int x,int y)
+
+3)Both size and location
+public void setBounds(int x,int y,int width,int height)
+
+4)Visibility : to enable or disbale the visibility 
+public void setVisible(boolean st)  pass true if you want to show the component or pass false if you don't want to show the component.
+
+5)To active the component
+public void setEnable(boolean st) 
+if we pass true than component will be active means  you can click on the component.
+if we pass false than component will not active means  you can not click on the component.
+
+6)to set color
+public void setForeground(Color color)
+
+7)public void setBackground(Color color)
+
+8)to change the font
+public void setFont(Font font)
+
+9)to add the component
+public void add(Component com)
+
+10)to disable resize the frame by default it is enabled.
+fr.setResizable(false);
+
+11)to perform the close operation for a programme.we need to pass 3 here.
+fr.setDefaultCloseOperation(3)
+
+12)whenever we are using buttons or component we should call this and assign it null.
+fr.setLayout(null);
+
+JFrame class
+------------
+Object of this class should be created for frame/window of GUI.
+JFrame fr=new JFrame();
+This frame will be bydefault invisible. we need to call setVisible() method to make it visible.
+fr.setVisbile(true);
+Size of this frame bydefault will be width=0 and height=0.We need to define method to change the size of the frame setSize()
+fr.setSize(400,500);
+This frame will be shown on the top left of the os screen.We need to call setLocation() method to change the location.
+fr.setLocation(100,50);
+
+
+when you click on cross button to close the programme frame will become invisible but programme/JVM will not be terminated. if we want to terminate the programme also then we need to call setDefaultCloseOperation() method of JFrame and pass 3 to this method.
+we can pass 0 or 1 or 2 or 3
+3 stands for close/terminate the operation.
+0 to disable the close operation.
+
+import javax.swing.*;
+public class App 
+{
+	//write code to create objects here
+	JFrame fr=new JFrame();
+     //	write code to display frame inside constructor
+	public App()
+	{	
+		fr.setSize(500,500);
+		fr.setLocation(500,100);
+		fr.setVisible(true);
+		fr.setResizable(false);
+		fr.setDefaultCloseOperation(3);
+		// fr.setDefaultCloseOperation(0); to disable the close operation.
+	}
+	public static void main(String[] args) 
+	{
+		new App();
+	}
+
+}
+

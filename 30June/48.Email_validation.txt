@@ -1,0 +1,27 @@
+
+public class emailValidation 
+{
+	public static boolean isValid(String email)
+	{
+		int v1=email.indexOf('@');
+		if(v1==-1)
+			return false;
+		int v2=email.lastIndexOf('.');
+		if(v2==-1)
+			return false;
+		if(v2<v1)
+			return false;
+		return true;
+	}
+	
+	
+	
+	
+	public static void main(String[] args) 
+	{
+		boolean st=isValid("rehan.ahmad991@ded.");
+		System.out.println(st);
+		
+	}
+
+}

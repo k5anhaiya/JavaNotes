@@ -1,0 +1,54 @@
+we can define variable Arguments as
+-------------------------------------
+we can pass ...a in the parameter list. in the method .n it should be the last parameter of the method.
+public class variableArgumentsString 
+
+
+note:
+varibale arguments parameter must be the last parameter.
+{
+	public static void showNames(int start,String ...s)
+	{
+		for(String x:s)
+		{
+			System.out.println(start+"."+x);
+			start++;
+		}
+	}
+	public static void main(String[] args) 
+	{
+		showNames(1,"Kanhaiya","Hanuman","Manish","Narayan","Rishi","Harkesh");
+	}
+
+}
+
+
+
+example
+-------
+
+public class variableArguments 
+{
+	//public void showMethod(String ...a,int b)  this is  showing wrong because variable arguments should be last
+	public void showMethod(int a,String ...b)
+	{
+		System.out.println("a="+a+"b="+b);
+	}
+
+}
+
+
+main
+----
+
+public class App
+{
+
+	public static void main(String[] args) 
+	{
+		variableArguments va=new variableArguments();
+		va.showMethod(25,"Kanhaiya","raja","Manish");
+	}
+
+}
+

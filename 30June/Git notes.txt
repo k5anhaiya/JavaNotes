@@ -1,0 +1,219 @@
+Command to set name globally
+-----------------------------
+git config --global user.name "Kanhaiya Kumar"
+
+Command to set email globally
+------------------------------
+git config --global user.email "5kanhaiyakumar@gmail.com"
+
+
+command to check the global list
+---------------------------------
+git config --list
+
+
+command to delete a user from the global list
+---------------------------------------------
+git config --global --unset user.name
+
+
+command to initialize git for the first time in any folder
+----------------------------------------------------------
+git init
+
+command to check the status of git
+----------------------------------
+git status
+
+
+command to add files to staged area
+-----------------------------------
+git add index.html
+
+	or
+
+git add -A
+
+	or
+
+git add .
+
+command to commit a file on git
+-------------------------------
+git commit -m "first commit"
+
+	or
+git commit -m "comment"
+
+
+command to track the changes which are not in stagged area
+----------------------------------------------------------
+compare between working directory <----------------------------->  stagged directory
+
+git diff
+
+
+command to track the changes which are stagged
+-----------------------------------------------
+compares between  stagged directory <----------------------------------->Gitbhub directory
+
+git diff --staged
+
+command to check the log (to check history of file)
+------------------------------------------------------
+git log
+
+
+or
+
+git log --stat
+
+command to remove the file which are stagged
+---------------------------------------------
+git rm --cached services.html
+
+
+command to move the file which are not stagged
+----------------------------------------------
+git rm -f services.html
+
+command to check the branch list
+---------------------------------
+git branch --list
+
+command to create a new branch
+--------------------------------
+git branch login
+
+or 
+git branch branchname
+
+
+command to switch branch
+---------------------
+git checkout login
+
+or 
+
+git checkout branchname
+    
+command to delete  a branch login2
+----------------------------------
+git branch -D login2
+
+Command to commit the file without adding to staged (Direct commit)
+-------------------------------------------------------------------
+this direct commit works with only those files which are already commited atleast once.
+
+git commit -a -m "comment"
+
+
+
+command to make clone of any repo
+----------------------------------
+
+git clone "URL"
+
+
+Steps to ignore a file or folder while commiting
+-----------------------------------------------
+step1: create a file withextension .gitignore
+
+step2: open .gitignore with vs-code
+
+step3: write the name of the file to ignore in the .gitignore file
+
+step4: like error.log  or *.log  or *.java  or *.html etc
+
+to ignore a folder or directory demo/
+
+Command to unstaged a file which is in staged area
+---------------------------------------------------
+git restore --staged file.txt
+
+command to restore the file to last staged.
+-------------------------------------------
+git checkout -f
+
+Command to push 
+----------------
+git push origin branchname	
+
+or to push to url directly
+
+git push -u "URL LINK"	
+
+Command to delete a branch from remote
+--------------------------------------
+git push origin --delete branchname
+
+Command to make clone of any repo
+----------------------------------
+
+git clone "REPO LINK"
+
+
+Command to push the code to remote repo
+---------------------------------------
+git push origin branchname(to which you want to push the command)
+
+
+Command to pull the code from remote
+-------------------------------------
+git pull origin branchname(from which you want to pull the commands)
+
+
+command to merge the code from one branch to other
+--------------------------------------------------
+suppose we have three branches
+1.main(This is the branch)
+2.Developer1(This is a repo of main branch)
+3.Developer2(This is a repo of main branch)
+
+now developer2 has made changes in his code and want to merge this with main branch.
+
+first of all he will have to move to main branch
+git checkout main
+
+then for merge we use the command
+
+git merge origin branchname(from which we want to merge the code main branch.)
+
+
+
+git stash
+---------
+Stash is used to keep the codes in a secret place , suppose we are working on a project and do not want to add the code to staged area then we can move this code to stash area(i.e secret area)
+
+following are the command of git stash
+--------------------------------------
+command to stash 
+----------------
+git stash
+
+or 
+
+git stash -m "name of stash"
+
+command to check the list in the stash
+---------------------------------------
+
+git stash list
+
+
+command to apply changes from the stash
+----------------------------------------
+git stash apply "stash@{2}"
+
+or
+
+git stash apply     ---------->to apply the recent stash updated.
+
+command to delete a stash
+-------------------------
+git stash clear
+
+
+command to add stash to branch
+-----------------------------------
+git stash branch "branch name"  stash@{0}

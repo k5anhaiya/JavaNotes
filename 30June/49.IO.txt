@@ -1,0 +1,118 @@
+IO(Input and output)
+--------------------
+Input is read operation. Program can read data from the source such as file,input buffer,socket etc.
+
+Output is write operation. programme can write data to destination such as file,output buffer, socket etc.
+
+programme performs read and write opeerations with the help of stream.In Java every stream is represented in the form of object.
+
+we need to write code to create these stream.code can be prefdefined also.
+
+java.io packages containes classes of stream.
+
+classes for read/input
+----------------------
+
+InputStream class
+------------------
+This is topmost/root class of the inputstream classes hirerachy. it is an abstract class.it has several child classes.few of them are as follows
+
+1)fileInputStream class
+2)DataInputStream class
+3)objectInputStream class
+4)bufferedInputStream class
+etc
+
+
+classes for write/output
+-------------------------
+
+OutputStream class
+------------------
+This is topmost/root class of the outputstream classes hirerachy. it is an abstract class.it has several child classes.few of them are as follows
+
+1)fileOutputStream class
+2)DataOutputStream class
+3)objectOutputStream class
+4)printStream class
+etc
+
+System.out.println is a method of printstream class which is also a child class of outputStream class.
+
+import java.io.*;
+
+public class WriteApp 
+{
+	public static void main(String[] args) 
+	{
+		try 
+		{
+			FileOutputStream fos=new FileOutputStream("D:\\java\\weekend\\core_java\\IO\\self\\aa.txt");
+			//pass the url of the folder in which you want
+			//to write the code
+			//now we want to write the code in the file
+			//we will create object of printstream
+			PrintStream ps=new PrintStream(fos);
+			ps.println("Welcome to the CETPA Infotech");
+			ps.println("Hello Everyone");
+			ps.print("Noida");
+			ps.println("This is an Example of IO");
+			ps.println("Delhi");
+		} 
+		catch (Exception ex) 
+		{
+			System.out.println(ex);
+		}
+	}
+
+}
+output of above programme
+-------------------------
+
+Welcome to the CETPA Infotech
+Hello Everyone
+NoidaThis is an Example of IO
+Delhi
+
+input example
+--------------
+
+import java.io.*;
+
+import javax.swing.event.TreeWillExpandListener;
+
+public class ReadApp 
+{
+	public static void main(String[] args) 
+	{
+		try 
+		{
+			FileInputStream fis=new FileInputStream("D:\\java\\weekend\\core_java\\IO\\self\\aa.txt");
+			//to read the things in the file we will use datainputstream method
+			DataInputStream dis=new DataInputStream(fis);
+			String str=dis.readLine();//this will return the text in the first line
+			//after executing returns null at end
+			//hence we will put this in loop
+			while(str!=null)
+			{
+			System.out.println(str);
+			str=dis.readLine();
+			}
+		} 
+		catch (Exception ex) 
+		{
+			System.out.println(ex);
+		}
+	}
+
+}
+output of programme
+-------------------
+Welcome to the CETPA Infotech
+Hello Everyone
+NoidaThis is an Example of IO
+Delhi
+
+
+
+

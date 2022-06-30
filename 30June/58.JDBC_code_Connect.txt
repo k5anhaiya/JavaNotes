@@ -1,0 +1,8 @@
+JDBC Code Steps
+--------------
+
+1)Loading driver class
+2)creating connection object
+3)creating statement object
+4)executing sql query
+5)closing connection

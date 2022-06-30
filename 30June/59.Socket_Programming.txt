@@ -1,0 +1,99 @@
+Scoket programming
+------------------
+it is used to communicate between two programmes.
+socket programming should be done when you want to build client and server application.
+
+client application sends request to the server application
+server application provides response to the client application
+communication between client and server application will be done using two sockets.
+one socket will be created by client programme at client side.
+server programme will create a socket for this client at server side.
+
+Both client and server programme will use these sockets for communication.
+
+Every socket will be represented in the form of object.This object is created from java.net.Socket class(i.e socket class)
+
+client programme must create an object of this class to make connection with server.
+
+code to create socket will be written as
+-----------------------------------------
+Inside constructor of this class we need to pass ip address of the server programme and port number of the server programme.
+Socket soc=new Socket(" 192.168.0.105",8080);
+
+ 192.168.0.105 :this is ip address of the server programme.
+ 8080		:this is port number of ther server programme.
+
+Remember ip address is used to identify on which server or client programme is running.
+Port number is used to identify server or client programme.
+
+Creating server programme
+-------------------------
+
+import java.net.*;
+public class Myserver
+{
+	private ServerSocket server;  //here ServerSocket is the cass & server is refrence variable.
+	public Myserver()
+	{
+		try
+		{
+			//code to create server
+			server=new ServerSocket(2001);//2001 will be port number of this server
+						//this code will create server and start server also
+			System.out.println("Server Started....");
+			while(true)
+			{
+				//code to accept client connection request
+				server.accept();//This method will be called when client will send request(client programme will create socket)
+				System.out.println("Client connected..");
+			}
+		}
+		catch(Exception ex)
+		{
+			System.out.println(ex);
+		}
+	}
+	public static void main(String[] args)
+	{
+		new MyServer();
+	}
+}
+
+
+
+Creating client programme
+-------------------------
+
+import java.net.*;
+
+public class MyClient 
+{
+	private Socket soc; //here Socket is the class & soc is refrence variable.
+	
+	public MyClient()
+	{
+		try 
+		{
+			//code to create server
+			soc=new Socket("local host",2001);//because server is running on the same computer
+			
+		} 
+		catch (Exception e) 
+		{
+			System.out.println(e);
+		}
+		
+	}
+	public static void main(String[] args) 
+	{
+		new MyClient();
+
+	}
+
+}
+
+
+Note: if port number and ip address is wrong then it will not show server connected.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

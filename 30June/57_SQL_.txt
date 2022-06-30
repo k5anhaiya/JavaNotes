@@ -1,0 +1,428 @@
+SQL
+---
+
+Structured query language
+
+we can define command in sql for dbms.
+This command will be executed by DBMS/databse server.
+there are main three types of sql commands:
+
+1)DDL(Data definition language):these are the commands inside DDL create,alter,drop
+2)DML(Data manupulation language):insert,delete,update
+3)DQL(Data query language):select
+
+1)Command To show Database
+--------------------------
+
+show databases;
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| abc                |
+| information_schema |
+| mysql              |
+| performance_schema |
+| selfdatabase       |
+| sys                |
++--------------------+
+6 rows in set (2.34 sec)
+
+
+2)Command to create Database
+------------------------------
+
+create database abc;
+
+
+mysql> create database software;
+Query OK, 1 row affected (5.56 sec)
+
+3)Command to delete Database
+------------------------------
+drop database abc;
+
+mysql> drop database software;
+Query OK, 0 rows affected (0.83 sec)
+
+
+
+
+4)Command to use database
+--------------------------
+use databasename;
+
+use abc;
+
+mysql> use software;
+Database changed
+
+5)Command to create table in database
+----------------------------------------
+create table softwareinfo(softwareid int primary key,firstname varchar(30),lastname varchar(30),phone varchar(20),age int);
+
+ex:
+mysql> create table softwareinfo(softwareid int primary key,firstname varchar(30),lastname varchar(30),phone varchar(20),age int);
+Query OK, 0 rows affected (15.57 sec)
+
+
+6)Command to Show tables;
+--------------------------
+show tables;
+
+
+mysql> show tables;
++--------------------+
+| Tables_in_software |
++--------------------+
+| softwareinfo       |
++--------------------+
+1 row in set (0.71 sec)
+
+
+7)Command to insert data into table
+------------------------------------
+insert into softwareinfo(softwareid,firstname,lastname,phone,age) values(101,'Kanhaiya','Kumar','9572431005',25);
+
+					OR
+
+ insert into softwareinfo values(102,'Manish','Kumar','9031551857',22);
+Query OK, 1 row affected (4.34 sec)
+
+
+
+ex:
+insert into softwareinfo(softwareid,firstname,lastname,phone,age) values(101,'Kanhaiya','Kumar','9572431005',25);
+Query OK, 1 row affected (1.48 sec)
+
+
+8)To show the data inside the table
+------------------------------------
+select * from tablename;
+
+ex:
+
+mysql> select * from softwareinfo;
++------------+-----------+----------+------------+------+
+| softwareid | firstname | lastname | phone      | age  |
++------------+-----------+----------+------------+------+
+|        101 | Kanhaiya  | Kumar    | 9572431005 |   25 |
+|        102 | Manish    | Kumar    | 9031551857 |   22 |
++------------+-----------+----------+------------+------+
+2 rows in set (0.00 sec)
+
+9)To Show particular column of data from the table
+---------------------------------------------------
+select firstname,lastname,phone from softwareinfo;
+
+
+mysql> select firstname,lastname,phone from softwareinfo;
++-----------+----------+------------+
+| firstname | lastname | phone      |
++-----------+----------+------------+
+| Kanhaiya  | Kumar    | 9572431005 |
+| Manish    | Kumar    | 9031551857 |
++-----------+----------+------------+
+2 rows in set (0.00 sec)
+
+10)To show a single data from the table
+-----------------------------------------
+select * from softwareinfo where softwareid=102;
+
+
+mysql> select * from softwareinfo where softwareid=102;
++------------+-----------+----------+------------+------+
+| softwareid | firstname | lastname | phone      | age  |
++------------+-----------+----------+------------+------+
+|        102 | Manish    | Kumar    | 9031551857 |   22 |
++------------+-----------+----------+------------+------+
+1 row in set (0.11 sec)
+
+			or
+select * from softwareinfo where firstname=kanhaiya;
+
+mysql> select * from softwareinfo where firstname='kanhaiya';
++------------+-----------+----------+------------+------+
+| softwareid | firstname | lastname | phone      | age  |
++------------+-----------+----------+------------+------+
+|        101 | Kanhaiya  | Kumar    | 9572431005 |   25 |
++------------+-----------+----------+------------+------+
+1 row in set (0.00 sec)
+
+
+few entries of data in the table;
+
+
+11)Command to sort the elements in the table and show
+------------------------------------------------------
+
+select * from softwareinfo where age>18;
+
+
+mysql> select * from softwareinfo where age>18;
++------------+-----------+----------+------------+------+
+| softwareid | firstname | lastname | phone      | age  |
++------------+-----------+----------+------------+------+
+|        101 | Kanhaiya  | Kumar    | 9572431005 |   25 |
+|        102 | Manish    | Kumar    | 9031551857 |   22 |
+|        103 | Raja      | Kumar    | 8863836352 |   21 |
+|        106 | shweta    | kumari   | 5678455623 |   20 |
++------------+-----------+----------+------------+------+
+4 rows in set (0.00 sec)
+
+12)Command to sort the elements in the using between keyword
+------------------------------------------------------------
+select * from softwareinfo where age between 20 and 25;
+
+mysql> select * from softwareinfo where age between 20 and 25;
++------------+-----------+----------+------------+------+
+| softwareid | firstname | lastname | phone      | age  |
++------------+-----------+----------+------------+------+
+|        101 | Kanhaiya  | Kumar    | 9572431005 |   25 |
+|        102 | Manish    | Kumar    | 9031551857 |   22 |
+|        103 | Raja      | Kumar    | 8863836352 |   21 |
+|        106 | shweta    | kumari   | 5678455623 |   20 |
++------------+-----------+----------+------------+------+
+4 rows in set (0.00 sec)
+
+			or
+mysql> select * from softwareinfo where age>=18 and age<=28;
++------------+-----------+----------+------------+------+
+| softwareid | firstname | lastname | phone      | age  |
++------------+-----------+----------+------------+------+
+|        101 | Kanhaiya  | Kumar    | 9572431005 |   25 |
+|        102 | Manish    | Kumar    | 9031551857 |   22 |
+|        103 | Raja      | Kumar    | 8863836352 |   21 |
+|        106 | shweta    | kumari   | 5678455623 |   20 |
++------------+-----------+----------+------------+------+
+4 rows in set (0.00 sec)
+
+13)Command to show the firstname starts with the letter s
+---------------------------------------------------------
+select * from softwareinfo where firstname like 's%';
+
+mysql> select * from softwareinfo where firstname like 's%';
++------------+------------+----------+------------+------+
+| softwareid | firstname  | lastname | phone      | age  |
++------------+------------+----------+------------+------+
+|        106 | shweta     | kumari   | 5678455623 |   20 |
+|        107 | sweet      | kumari   | 5675665623 |   28 |
+|        108 | sweetheart | king     | 5675665623 |   28 |
++------------+------------+----------+------------+------+
+3 rows in set (0.03 sec)
+
+14)Command to show the lastname ends with i
+
+select * from softwareinfo where lastname like '%i';
+
+mysql> select * from softwareinfo where lastname like '%i';
++------------+-----------+----------+------------+------+
+| softwareid | firstname | lastname | phone      | age  |
++------------+-----------+----------+------------+------+
+|        106 | shweta    | kumari   | 5678455623 |   20 |
+|        107 | sweet     | kumari   | 5675665623 |   28 |
++------------+-----------+----------+------------+------+
+2 rows in set (0.00 sec)
+
+15)command to sort the elements in the table according to the number of words
+------------------------------------------------------------------------------
+select * from softwareinfo where firstname like '____';
+
+mysql> select * from softwareinfo where firstname like '____';
++------------+-----------+----------+------------+------+
+| softwareid | firstname | lastname | phone      | age  |
++------------+-----------+----------+------------+------+
+|        103 | Raja      | Kumar    | 8863836352 |   21 |
++------------+-----------+----------+------------+------+
+1 row in set (0.00 sec)
+
+
+16)Command to sort according to the maximum value for this we need to make subquery.
+-----------------------------------------------------------------------------------
+
+select * from softwareinfo where age=(select max(age) from softwareinfo);
+
+mysql> select * from softwareinfo where age=(select max(age) from softwareinfo);
++------------+------------+----------+------------+------+
+| softwareid | firstname  | lastname | phone      | age  |
++------------+------------+----------+------------+------+
+|        107 | sweet      | kumari   | 5675665623 |   28 |
+|        108 | sweetheart | king     | 5675665623 |   28 |
++------------+------------+----------+------------+------+
+2 rows in set (0.02 sec)
+
+17)Command to sort according to the minimum value for this we need to make subquery.
+-----------------------------------------------------------------------------------
+
+select * from softwareinfo where age=(select min(age) from softwareinfo);
+
+mysql> select * from softwareinfo where age=(select min(age) from softwareinfo);
++------------+-----------+----------+------------+------+
+| softwareid | firstname | lastname | phone      | age  |
++------------+-----------+----------+------------+------+
+|        105 | Rajan     | Kumar    | 4568978568 |   15 |
++------------+-----------+----------+------------+------+
+1 row in set (0.00 sec)
+
+18)Command to delete a data from the table 
+===========================================
+
+delete from softwareinfo where softwareid=106;
+
+mysql> delete from softwareinfo where softwareid=106;
+Query OK, 1 row affected (0.63 sec)
+
+mysql> select * from softwareinfo;
++------------+------------+----------+------------+------+
+| softwareid | firstname  | lastname | phone      | age  |
++------------+------------+----------+------------+------+
+|        101 | Kanhaiya   | Kumar    | 9572431005 |   25 |
+|        102 | Manish     | Kumar    | 9031551857 |   22 |
+|        103 | Raja       | Kumar    | 8863836352 |   21 |
+|        104 | Raushan    | Kumar    | 8956234578 |   17 |
+|        105 | Rajan      | Kumar    | 4568978568 |   15 |
+|        107 | sweet      | kumari   | 5675665623 |   28 |
+|        108 | sweetheart | king     | 5675665623 |   28 |
++------------+------------+----------+------------+------+
+7 rows in set (0.00 sec)
+
+
+19)Command to update a query
+
+update softwareinfo set lastname='khanna',phone='8888888888' where softwareid=102;
+
+mysql> update softwareinfo set lastname='khanna',phone='8888888888' where softwareid=102;
+Query OK, 1 row affected (0.42 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from softwareinfo;
++------------+------------+----------+------------+------+
+| softwareid | firstname  | lastname | phone      | age  |
++------------+------------+----------+------------+------+
+|        101 | Kanhaiya   | Kumar    | 9572431005 |   25 |
+|        102 | Manish     | khanna   | 8888888888 |   22 |
+|        103 | Raja       | Kumar    | 8863836352 |   21 |
+|        104 | Raushan    | Kumar    | 8956234578 |   17 |
+|        105 | Rajan      | Kumar    | 4568978568 |   15 |
+|        107 | sweet      | kumari   | 5675665623 |   28 |
+|        108 | sweetheart | king     | 5675665623 |   28 |
++------------+------------+----------+------------+------+
+7 rows in set (0.00 sec)
+
+
+20)Command to find the second highest
+-------------------------------------
+select distinct(age) from studentdata order by age desc limit 1 offset 1;
+
+21)to show the data in ascending order
+--------------------------------------
+select distinct(age) from studentdata order by age desc;   //to show in descending order
+
+select distinct(age) from studentdata order by age;  //to show the data of age in ascending order
+
+22)To Rename Table
+--------------------
+alter table user rename to users;
+
+23)to add column to table
+--------------------------
+alter table studenttable add(password varchar(20));
+	or
+alter table table_name add(column_name1 varchar(30),column_name2 varchar(30),column_name3 varchar(20));
+
+
+mysql> select * from studenttable;
++------------+--------------+--------------+--------------+--------------+------+----------+-------------+--------+--------+
+| rollnumber | firstName    | lastName     | Location     | phone        | age  | password | collegeName | stream | branch |
++------------+--------------+--------------+--------------+--------------+------+----------+-------------+--------+--------+
+|       1001 | Krishna      | Murti        | Okhla        | 8989675643   |   28 | NULL     | NULL        | NULL   | NULL   |
+|       1002 | ShyamKrishna | Krishnaswami | Noida        | 8077157462   |   23 | NULL     | NULL        | NULL   | NULL   |
+|       1003 | Ramesh       | sahh         | Uttarpradesh | 9089784565   |   27 | NULL     | NULL        | NULL   | NULL   |
+|       1004 | Sohan        | pandit       | Haryana      | 7766334455   |   25 | NULL     | NULL        | NULL   | NULL   |
+|       1005 | Chandan      | Singh        | Delhi        | 9078564567   |   24 | NULL     | NULL        | NULL   | NULL   |
+|       1006 | vikash       | chauhan      | Punjab       | 8967899067   |   24 | NULL     | NULL        | NULL   | NULL   |
+|       1007 | Chand        | prasad       | Pune         | 1234563421   |   26 | NULL     | NULL        | NULL   | NULL   |
+|       1008 | pankaj       | Singh        | Jammu        | 5676984532   |   27 | NULL     | NULL        | NULL   | NULL   |
+|       1009 | Gunjan       | Mishra       | chennai      | 7645987645   |   28 | NULL     | NULL        | NULL   | NULL   |
+|       1010 | Rinku        | Sharma       | Raipur       | 9876453221   |   29 | NULL     | NULL        | NULL   | NULL   |
+|       1011 | Sohail       | Prost        | Chattisgarh  | 5678907645   |   30 | NULL     | NULL        | NULL   | NULL   |
+|       1012 | Monika       | Singh        | Raipur       | 9879897890   |   35 | NULL     | NULL        | NULL   | NULL   |
+|       1013 | Ankita       | Vishwakarma  | Bihar        | 987654345678 |   18 | NULL     | NULL        | NULL   | NULL   |
+|       1014 | Hanuman      | Sahani       | Bihar        | 987654345678 |   25 | NULL     | NULL        | NULL   | NULL   |
+|       1015 | Abhishek     | Verma        | Delhi        | 78349237492  |   36 | NULL     | NULL        | NULL   | NULL   |
+|       1016 | Priya        | Raut         | Punjab       | 432987324987 |   32 | NULL     | NULL        | NULL   | NULL   |
+|       1017 | Aishwarya    | sharma       | Haryana      | 342768234    |   36 | NULL     | NULL        | NULL   | NULL   |
+|       1018 | Anamika      | Verma        | Meerut       | 3426834      |   34 | NULL     | NULL        | NULL   | NULL   |
+|       1019 | Amit         | Sharma       | Ghaziabad    | 324234234    |   28 | NULL     | NULL        | NULL   | NULL   |
+|       1020 | Mohan        | Mishra       | Modinagar    | 984345678    |   38 | NULL     | NULL        | NULL   | NULL   |
+|       1021 | Priyanka     | Kumari       | RajNagar     | 8432768439   |   42 | NULL     | NULL        | NULL   | NULL   |
+|       1022 | Kanhaiya     | Kumar        | Noida        | 1234567893   |   56 | NULL     | NULL        | NULL   | NULL   |
+|       1023 | royal        | Sharma       | Uttarpradesh | 4576987634   |   38 | NULL     | NULL        | NULL   | NULL   |
+|       1024 | SHARUKH      | KHAN         | JAUnPUR      | 4576987634   |   48 | NULL     | NULL        | NULL   | NULL   |
++------------+--------------+--------------+--------------+--------------+------+----------+-------------+--------+--------+
+24 rows in set (0.00 sec)
+
++------------+--------------+--------------+--------------+--------------+------+----------+
+| rollnumber | firstName    | lastName     | Location     | phone        | age  | password |
++------------+--------------+--------------+--------------+--------------+------+----------+
+|       1001 | Krishna      | Murti        | Okhla        | 8989675643   |   28 | NULL     |
+|       1002 | ShyamKrishna | Krishnaswami | Noida        | 8077157462   |   23 | NULL     |
+|       1003 | Ramesh       | sahh         | Uttarpradesh | 9089784565   |   27 | NULL     |
+|       1004 | Sohan        | pandit       | Haryana      | 7766334455   |   25 | NULL     |
+|       1005 | Chandan      | Singh        | Delhi        | 9078564567   |   24 | NULL     |
+|       1006 | vikash       | chauhan      | Punjab       | 8967899067   |   24 | NULL     |
+|       1007 | Chand        | prasad       | Pune         | 1234563421   |   26 | NULL     |
+|       1008 | pankaj       | Singh        | Jammu        | 5676984532   |   27 | NULL     |
+|       1009 | Gunjan       | Mishra       | chennai      | 7645987645   |   28 | NULL     |
+|       1010 | Rinku        | Sharma       | Raipur       | 9876453221   |   29 | NULL     |
+|       1011 | Sohail       | Prost        | Chattisgarh  | 5678907645   |   30 | NULL     |
+|       1012 | Monika       | Singh        | Raipur       | 9879897890   |   35 | NULL     |
+|       1013 | Ankita       | Vishwakarma  | Bihar        | 987654345678 |   18 | NULL     |
+|       1014 | Hanuman      | Sahani       | Bihar        | 987654345678 |   25 | NULL     |
+|       1015 | Abhishek     | Verma        | Delhi        | 78349237492  |   36 | NULL     |
+|       1016 | Priya        | Raut         | Punjab       | 432987324987 |   32 | NULL     |
+|       1017 | Aishwarya    | sharma       | Haryana      | 342768234    |   36 | NULL     |
+|       1018 | Anamika      | Verma        | Meerut       | 3426834      |   34 | NULL     |
+|       1019 | Amit         | Sharma       | Ghaziabad    | 324234234    |   28 | NULL     |
+|       1020 | Mohan        | Mishra       | Modinagar    | 984345678    |   38 | NULL     |
+|       1021 | Priyanka     | Kumari       | RajNagar     | 8432768439   |   42 | NULL     |
+|       1022 | Kanhaiya     | Kumar        | Noida        | 1234567893   |   56 | NULL     |
+|       1023 | royal        | Sharma       | Uttarpradesh | 4576987634   |   38 | NULL     |
+|       1024 | SHARUKH      | KHAN         | JAUnPUR      | 4576987634   |   48 | NULL     |
++------------+--------------+--------------+--------------+--------------+------+----------+
+24 rows in set (0.00 sec)
+
+24)To change the column name inside the table
+----------------------------------------------
+alter table studenttable change password userpassword varchar(30);
+
+alter table studentmarks change Name AliasName varchar(30);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from studentmarks;
++-------+---------+-------+-----------+
+| Maths | English | Hindi | AliasName |
++-------+---------+-------+-----------+
+| 45    | 65      | 78    | kanhaiya  |
++-------+---------+-------+-----------+
+1 row in set (0.00 sec)
+
+
+25)To drop a column from the table
+-----------------------------------
+alter table studentmarks drop column name;
+
+
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from studentmarks;
++-------+---------+-------+---------+-----------+
+| Maths | English | Hindi | science | geography |
++-------+---------+-------+---------+-----------+
+| 45    | 65      | 78    | 40      | 75        |
++-------+---------+-------+---------+-----------+
+1 row in set (0.00 sec)

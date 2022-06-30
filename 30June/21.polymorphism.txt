@@ -1,0 +1,55 @@
+Polymorphism
+------------
+it is a greek word. polymorphism means having many forms. or one name many forms.
+it reduces the complexity of the code.
+
+polymorphism is achieved by the help of method overloading and method over riding.
+
+types of polymorphism
+----------------------
+1)Static polymorphism:
+it is achieved by method overloading(defining more than one same name method inside the same class). this also known as compile time polymorphism.
+
+2)dynamic polymorphism
+it is achieved by method over riding(redifining same name method in child class ,which is already defined in parent class). this is also known as run time polymorphism.
+
+
+public class LargestNumber 
+{
+	public void sum(int x, int y,int z)
+	{
+	int res= x+y+z;
+	System.out.println("sum="+res);
+	}
+	public void sum(int x, int y)
+	{
+	int res= x+y;
+	System.out.println("sum="+res);
+	}
+	public void sum(float x,float y,float z)
+	{
+	float res= x+y+z;
+	System.out.println("sum="+res);
+	}
+	public void sum(float x, float y)
+	{
+	float res= x+y;
+	System.out.println("sum="+res);
+	}
+
+}
+
+
+main
+----
+public class App 
+{
+	public static void main(String[] args) 
+	{
+		LargestNumber obj=new LargestNumber();
+		obj.sum(10,20);
+		obj.sum(25,15,63);
+		obj.sum(12,45);
+		obj.sum(15,56,896);
+	}
+}

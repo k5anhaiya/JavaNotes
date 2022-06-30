@@ -1,0 +1,174 @@
+operators:Generally their are three operators
+based on the type of operand.
+
+1.unary operator:Those operations which are performed 
+on the single operand are called unary operator.
+ex:-
+1.increament operator:This operator is used to increase
+----------------------
+the value of variable by one.
+
+There are two type of increament operator:
+a)Pre-increament:(++x) value is first increased then printed
+-----------------
+it returns the new increased value. 
+ex:-
+if 
+x=10;
+++x;
+System.out.print(x);
+
+Result:
+11                         increased value:11
+
+b)post-increament:(x++)value is first printed then increased.
+------------------
+it returns the old value of the variable.
+ex:-
+if 
+x=10;
+x++;
+System.out.print(x);
+
+Result:
+10                        increased value:11
+
+2.decrement operator:
+---------------------
+a)pre decrement:(--x) value is first decreased & new value will be printed
+----------------
+ex:-
+x=10;
+--x;
+System.out.print(x);
+
+Result:
+9                        decreased value:9
+
+
+b)post decrement:(x--) value is decreased and it returns the old value.
+-----------------
+ex:-
+x=10;
+x--;
+System.out.print(x);
+
+Result:
+10                          decreased value:9
+
+3.Logical not operator:(!)used for inverting a boolean value.
+-------------------------- 
+
+Ex:-
+x=true;
+x=!y;
+System.out.print(x);
+
+Result
+False.
+
+
+                           Airthmetic operators
+                         -------------------------
+
+
+these operators are used for basic calculatoin purpose.
+basic operators are
++                to add a value
+-                to decrease a value    
+*                to multiply a value
+/                to devide a value and get the quotient
+%                to devide a value and get the remainder value.
+
+
+
+                            Assignment Operator
+                           -----------------------
+
+Assignment operator is used to assign the value from right to left.
+
+
+operator used (=)
+
+syntax:
+variable= value;
+
+compound operator
+-------------------
+
++=  for adding left operand with righ operand and then assigning it to variable on
+the left.
+
+-= for subrtacting left operand with righ operand and then assigning it to the
+variable on the left.
+
+*= for multiplying left operand with righ operand and then assigning it to the 
+variable on the left.
+
+/= for dividing left operand with right operand and then assigning it to variable 
+on the left.
+
+%= for assigning modulo of left opernad with righ operand and then assigning it to
+variable on the left.
+
+
+                           Relational Operator
+                          ----------------------
+
+== Equal to
+
+!= Not Equal to
+
+<  less than
+
+>   Greater than
+
+>= Greator than or equal to
+
+<= less than or equal to
+
+
+
+                            Logical Operator
+                           -------------------
+
+these logical operator are also called conditional operator.
+
+a) &&       AND operator   
+
+It returns true when both condition are true.
+
+    A       B       &&
+  true    false   false
+  false   true    false
+  true    true    true
+  false   false   false
+
+b)||        OR operator
+
+
+It returns true if atleast one condition is true.
+
+  A     B      ||
+true   true   true
+false  true   true
+true   false  true
+false  false  false
+
+
+c)^         Xor operator                           
+
+it is optional operator, it returns true when there is a different true or false in condition A & B.
+
+condition A     B          XOR
+true         true          False
+true         false        true
+false        true          true
+false         false        false
+
+
+
+
+
+2.Binary operators:
+3.Ternary operator:

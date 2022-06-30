@@ -1,0 +1,78 @@
+use of Final keyword
+--------------------
+
+1.final with Variables : The value of variable cannot be changed once initialized.
+
+public class useOfFinalKeyword 
+{
+
+	public static void main(String[] args) 
+	{
+		// Non final variable
+        int a = 5;
+  
+        // final variable
+        final int b = 6;
+  
+        // modifying the non final variable : Allowed
+        a++;
+  
+        // modifying the final variable : 
+        // Immediately gives Compile Time error.
+        b++;
+	}
+
+}
+
+2.final with Class : The class cannot be subclassed. Whenever we declare any class as final, it means that we can’t extend that class or that class can’t be extended or we can’t make subclass of that class
+
+
+final class finalKeywordwithClass 
+{
+	public static void main(String[] args)
+		{
+			int a = 10;
+		}
+	}
+	// here gets Compile time error that
+	// we can't extend finalKeywordwithClass as it is final.
+	class KK extends finalKeywordwithClass
+	{
+		// more code here with main method}
+
+
+
+3.final with Method : The method cannot be overridden by a subclass. Whenever we declare any method as final, then it means that we can’t override that method.
+
+class QQ {
+    final void rr() 
+    {}
+    public static void main(String[] args)
+    {}
+}
+  
+class MM extends QQ {
+  
+    // Here we get compile time error
+    // since can't extend rr since it is final.
+    void rr() {}
+}
+
+Note : If a class is declared as final then by default all of the methods present in that class are automatically final but variables are not.
+
+// Java program to illustrate final keyword
+final class G {
+
+	// by default it is final.
+	void h() {}
+
+	// by default it is not final.
+	static int j = 30;
+
+public static void main(String[] args)
+	{
+		// See modified contents of variable j.
+		j = 36;
+		System.out.println(j);
+	}
+}

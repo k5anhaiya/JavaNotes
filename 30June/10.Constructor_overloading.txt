@@ -1,0 +1,48 @@
+Encapsulation:
+--------------
+wrapping up attributes and behaviours(methods) of the object into a single unit is known as encapsulation.
+this is achieved by defining a class.
+
+Instance variable inside class should be private.
+
+class loading
+-------------
+Every class that a program  is using will be loaded by JVM into memory this process is called class loading.
+              As we know every class is a file and it contains executable commands so these command should be in memory for execution that's why each class is loaded.
+
+Static block:
+------------
+we can define this block inside class by using static keyword.This block is executed automatically when class is loaded. so command written inside this block is executed on class loading.
+
+examples:
+
+
+public class AA 
+{
+	static
+	{
+		System.out.println("Class AA is loaded...");
+	}
+}
+
+
+public class BB 
+{
+	static
+	{
+		System.out.println("Class BB is loaded...");
+	}
+}
+import java.util.Scanner;
+
+public class App 
+{
+
+	public static void main(String[] args) 
+	{
+	new AA();
+	new BB();
+	new Scanner(System.in);
+	}
+
+}

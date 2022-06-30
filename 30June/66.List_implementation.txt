@@ -1,0 +1,111 @@
+ArrayList class
+----------------
+It is an implementation of List interface.
+It uses resizable array to store elements(refrence of the object)
+Intial capacity of this array is 10.
+It should be used when programme wants to search elements more , than manipulation.As we know array is better in searching not manipulation.
+LinkedList is better in manipulation rather than searching.
+
+import java.util.ArrayList;
+
+public class App {
+
+	public static void main(String[] args)
+	{
+		ArrayList<String> list=new ArrayList<String>();
+		list.add("Rahul");
+		list.add("Kapil");
+		list.add("Hemant");
+		list.add(2,"Kuldeep");
+		list.add(null);
+		list.add("Suman");
+		list.add(0,"Arpita");
+		list.add("Rahul");
+		list.add(null);
+		
+		for(String str:list)
+		{
+			System.out.println(str);
+		}
+	}
+
+}
+Output
+------
+Arpita
+Rahul
+Kapil
+Kuldeep
+Hemant
+null
+Suman
+Rahul
+null
+
+
+
+
+
+LinkedList class
+----------------
+It is an implementation of List interface.
+It uses doubly linked list to store elements(refrence of the object)
+It should be used when programme wants manipulation of element more than searching .
+
+
+import java.util.LinkedList;
+
+public class LinkedListApp 
+{
+	public static void main(String[] args) 
+	{
+		LinkedList<String> list=new LinkedList<String>();
+		list.add("Rahul");
+		list.add("Kapil");
+		list.add("Hemant");
+		list.add(2,"Kuldeep");
+		list.add(null);
+		list.add("Suman");
+		list.add(0,"Arpita");
+		list.add("Rahul");
+		list.add(null);
+		
+		for(String str:list)
+		{
+			System.out.println(str);
+		}
+	}
+
+}
+output
+------
+Arpita
+Rahul
+Kapil
+Kuldeep
+Hemant
+null
+Suman
+Rahul
+null
+
+
+
+Vector class
+------------
+It is an implementation of List interface.
+It uses resizable array to store elements(refrence of the object)
+Intial capacity of this array is 10.
+It should be used when programme wants to search elements more than manipulation.
+
+
+
+Difference between ArrayList and VectorList
+-------------------------------------------
+Vector class was introduced in JDK1.0 while ArrayList Class was introduced in JDK1.2(Collection framework was also introduced in JDK1.2).
+
+Vector class is a synchronized(can be used by single thread at a time) class ArrayList class is non-synchronized(can be used by more than one thread at single time) class.
+
+
+Note:Object of synchornised class can be used by only one thread at a time.
+while object of non-synchronised can be used by more than one thread at a time.

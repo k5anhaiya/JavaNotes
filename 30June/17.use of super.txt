@@ -1,0 +1,61 @@
+use of super
+-------------
+super is a method as well as a keyword.
+super method is used by child class constructor to call the constructor of parent class.
+
+this is responsibility of child class constructor to call parent class constructor.
+this is a rule and this rule can not be voilated. that child class constructor will always call his parent class constructor.
+
+child class constructor must have following code to call the constructor of parent class.
+
+super(); //this code will call default constructor of parent class.
+or
+super(parameter); //this code will call parameterised constructor of                                  //parent class.
+
+example:
+
+public class AA 
+{
+	public AA()
+	{
+		System.out.println("calling default constructor of AA");
+	}
+	public AA(int x)
+	{
+		System.out.println("calling parameterized constructor of AA");
+	}
+
+}
+
+public class BB extends AA 
+{
+	public BB()
+	{
+		  super(); //  this is code to call the default constructor of AA
+//			super(50); // this is code to call the parameterized constructor of AA
+		System.out.println("Constructor of BB");
+	}
+	public static void main(String[] args) 
+	{
+		new BB();
+	}
+
+}
+
+
+or to call the parametrized constructor
+
+public class BB extends AA 
+{
+	public BB()
+	{
+		  //super();   this is code to call the default constructor of AA
+			super(50); // this is code to call the parameterized constructor of AA
+		System.out.println("Constructor of BB");
+	}
+	public static void main(String[] args) 
+	{
+		new BB();
+	}
+
+}

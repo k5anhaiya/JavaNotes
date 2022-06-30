@@ -1,0 +1,220 @@
+What is Lambda Expression
+--------------------------
+Lambda is anonymous Function.
+
+->No Name
+->No Modifier
+->No Return Type
+
+
+this is an example of simple method
+------------------------------------
+
+public void m1()
+{
+	System.out.print("Test");
+}
+
+
+if we remove access modifier,name of method,return type of method then it will become lambda function
+
+like
+
+()->
+{
+	System.out.print("Test");
+}
+
+
+Benefits of lambda function
+----------------------------
+->Reduces the lines of code.
+->sequential and parallel execution support by passing behaviour as an argument in method.
+->To call APIs Very effectively
+->To write more Readable, Maintainable and Concise code.
+  
+important rules of lambda
+--------------------------
+if the body of lambda Expression contain only one statement then curly braces are optional.
+
+Java compiler also enter the data type of variable passed in arguments,hence type is optional.
+
+
+Functional Interface
+---------------------
+if the interface contains only one abstract methods then it is functional interface.
+Ex: Runnable, callable,Comparable etc.
+
+To call lambda we require functional Interface.
+
+Lambda is used to implement functional interface in very simple and short manner.
+
+
+showing an example 1 by creating my own interface
+------------------------------------------------
+
+creating interface
+--------------------
+
+public interface Myinterface
+{
+	public abstract void sayHello();
+
+}
+
+implementing interface in a class
+----------------------------------
+
+public class interfaceImplemets implements Myinterface 
+{
+
+	@Override
+	public void sayHello() 
+	{
+		System.out.println("I am saying hello from My interfaceImplements class by implements my own Myinterface interface");
+		
+	}
+
+defining App
+------------
+
+
+public class App
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("My System Starts...");
+		
+		Myinterface i1=new interfaceImplemets();
+		i1.sayHello();
+	}
+
+}
+
+showing an example 2 by creating object of parent class & creating anonymous class
+-----------------------------------------------------------------------------------
+we can directly implements interface in a class by making the object of parent class
+-------------------------------------------------------------------------------------
+
+This class will be anonymous class(a class without having any name)
+
+public class App
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("My System Starts...");
+		
+//		Myinterface i1=new interfaceImplemets();
+//		i1.sayHello();
+		
+		
+		//calling anonymous class
+		Myinterface i=new Myinterface() //here it is not creating object it is calling one anonymous class.
+		{
+			
+			@Override
+			public void sayHello() 
+			{
+				System.out.println("This is first anonymous class");
+			}
+		};
+		i.sayHello();
+	}
+
+}
+
+
+same example with two anonymous class
+-------------------------------------
+
+
+public class App
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("My System Starts...");
+		
+//		Myinterface i1=new interfaceImplemets();
+//		i1.sayHello();
+		
+		
+		//calling anonymous class
+		Myinterface i=new Myinterface() 
+		{
+			
+			@Override
+			public void sayHello() 
+			{
+				System.out.println("This is first anonymous class");
+			}
+		};
+		i.sayHello();
+		
+		Myinterface i2=new Myinterface()
+		{
+			
+			@Override
+			public void sayHello() 
+			{
+				System.out.println("This is second anonymous class");
+			}
+		};
+		i2.sayHello();
+	}
+
+}
+
+
+so if you create an object of parent interface then no need to create one extra class and implement parent class we can directly use this parent class to make object it will automatically create anonymous class.
+
+showing an example 3 by using lambda expression
+------------------------------------------------
+using lambda expressions
+------------------------
+
+
+
+public class App
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("My System Starts...");
+		
+//		Myinterface i1=new interfaceImplemets();
+//		i1.sayHello();
+		
+		
+		//calling anonymous class
+//		Myinterface i=new Myinterface() 
+//		{
+//			
+//			@Override
+//			public void sayHello() 
+//			{
+//				System.out.println("This is first anonymous class");
+//			}
+//		};
+//		i.sayHello();
+//		
+//		Myinterface i2=new Myinterface()
+//		{
+//			
+//			@Override
+//			public void sayHello() 
+//			{
+//				System.out.println("This is second anonymous class");
+//			}
+//		};
+//		i2.sayHello();
+		
+		
+		//using our interface with the help of lambda
+		Myinterface i=()->
+		{
+			System.out.println("This is first time i am using lambda");
+		};
+		i.sayHello();
+	}
+
+}
+

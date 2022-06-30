@@ -1,0 +1,11 @@
+Collection
+-----------
+it is group of objects.
+
+As we know our programme creates mulitilple objects of same class to keep data.program uses these objects using refrence of these objects.It means program can keep refrence of the objects:
+Our program can keep refrence of the objects:
+1)In variable:This is suitable when programme is creating only one object.
+
+2)In array:This is suitable when number of objects are fixed and similar type of objects will be created.
+
+3)In collection::It is suitable When number of objects/quantity are not fixed.
