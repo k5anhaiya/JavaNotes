@@ -1,0 +1,49 @@
+Java Regular Expressions
+------------------------
+A regular expression is a sequence of character that forms a search pattern .When you seach for data in a text, you can use this search pattern to descible what you are searching for.
+
+A Regular Expressions can be used to perform all types of text search and text replace operations.
+
+A Regular Expression can be a single character or a moew complicated pattern.
+
+package: java.util.regex
+
+java.util.regex package includes the following classes:
+-------------------------------------------------------
+Pattern class- Defines a pattern(to be used in a search)
+Matcher Class- Used to search for the pattern.
+PatternSyntaxExcepiton Class- Indicates syntax error in a regular expression pattern.
+
+
+import java.util.regex.*;
+public class main{
+	public static void main(String[] args)
+	{
+		Pattern pattern=Pattern.compile("w3schools",Pattern.CASE_INSENSITIVE);
+		Matcher matcher= pattern.matcher("Visit W3Schools!");
+		boolean matchFound= matcher.find();
+		if(matchFound)
+		{
+			System.out.println("Match Found");
+		}else{
+		System.out.println("Match not found");
+		}
+	}
+}
+
+In this example,The word "w3schools" is being searched for in a sentence.
+
+First,the pattern is created using Pattern.compile() method. The first parameter indicates which pattern is being searched for in a sentence.
+Second parameter has a flag to indicate that the search be case -insensitive . The Second parameter is optional.
+
+The Matcher() method is used to search for the pattern in a string .It returns a Matcher object which contains information about the search that was performed.
+
+The find() method of Matcher class returns true if the pattern was found in the string and false if it was not found.
+
+
+Flags can be
+1)Pattern.CASE_INSENSITIVE- the case of letters will be ignored when performing a search.
+2)Pattern.LITERAL-Special character will not have any special meaning and will be treted as ordinary charcters while prforming a search.
+3)Pattern.UNICODE_CASE-use it together with the CASE_INSENSITIVE flag to also ignore the case of letters outside of the English Alphabet.
+
+

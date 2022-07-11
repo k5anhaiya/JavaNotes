@@ -1,0 +1,22 @@
+BigDecimal class are also immutable class.which is also non-modifiable class.
+BigDecimal is defined in java.math.BigDecimal package BigDecimal is used to calculate the monetory amount pricesely.
+
+
+import java.math.BigDecimal;
+
+public class Bigdata 
+{
+    public static void main(String[] args) 
+    {
+        System.out.println("financial calculation with double");
+        double d1=374.56;
+        double d2=374.26;
+        //result=0.30000000000001137
+        System.out.println("d1-d2="+(d1-d2));
+        System.out.println("Financial calculation with BigDecimal");
+        BigDecimal bigdecimal1=new BigDecimal("374.56");// here we pass String to get the values pricesly
+        BigDecimal bigdecimal2=new BigDecimal("374.26");
+        System.out.println("bd1-bd2="+ bigdecimal1.subtract(bigdecimal2));
+    }
+    
+}

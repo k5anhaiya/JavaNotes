@@ -1,0 +1,22 @@
+Hibernate
+---------
+SessionFactory
+--------------
+The SessionFactory is a factory of session and client of connectionProvider.It holds second level cache(optional) of data.The org.hibernate.SessionFactory interface provides factory method to get the object of Session.
+
+Session
+-------
+The Session object provides an interface betweeen the application and data stored in the database.It is a short-lived object and wraps the JDBC connection.It is factory of Transaction,Query and criteria.
+The org.hibernate.Session interface provides methods to insert,update and delete the object.It also provides factory methods for tranaction,Query and criteria.
+
+Transaction
+-----------
+The transaction object specifies the atmoic unit of work.It is optional.The org.hibernate.Transaction interface provides method for transaction managment.
+
+ConnectionProvider
+------------------
+It is a factory of JDBC connections .It absracts the application from DriverMAnager or DataSoruce.It is optional.
+
+TransactionFactory
+-------------------
+It is a Factory of Transaction.It is optional
