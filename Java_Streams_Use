@@ -1,0 +1,47 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Streams {
+    public static void main(String[] args) {
+        //Method 1 to create a List
+        List<Integer> list1 = List.of(11, 22, 33, 4455, 1556, 548, 7, 98, 12, 545, 232, 25, 51);
+        System.out.println(list1);
+
+        //Method 2 to create a List
+        List<Integer> list2 = Arrays.asList(12, 45, 65, 98, 78, 35, 26, 54, 51, 65, 8965, 53, 65, 45, 78, 65, 95, 12, 26);
+        System.out.println(list2);
+
+        //Method 3 to create a List
+        List<String> list3=new ArrayList<>();
+        list3.add("16");
+        list3.add("1");
+        list3.add("18");list3.add("625");list3.add("155");list3.add("915");list3.add("315");list3.add("18");list3.add("145");
+        System.out.println(list3);
+
+        //Code to use Streams in java
+
+        List<Integer> newStreamList = list1.stream().collect(Collectors.toList());
+        System.out.println(newStreamList);
+
+        List<Integer> newStreamList2 = list2.stream().collect(Collectors.toList());
+        System.out.println(newStreamList2);
+
+        List<String> newStreamList3 = list3.stream().collect(Collectors.toList());
+        System.out.println(newStreamList3);
+
+        //filtering even numbers from the list now
+
+        List<Integer> filteredList1 = newStreamList.stream().filter(i -> i % 2 == 0).collect(Collectors.toList());
+        System.out.println(filteredList1);
+
+        List<Integer> filteredList2 = newStreamList2.stream().filter(i -> i % 2 == 0).collect(Collectors.toList());
+        System.out.println(filteredList2);
+
+        List<String> filterdStringValues = newStreamList3.stream().filter(i -> i.equals("155") || i.equals("1")).collect(Collectors.toList());
+        System.out.println(filterdStringValues);
+
+    }
+}
