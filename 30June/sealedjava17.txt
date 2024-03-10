@@ -1,0 +1,94 @@
+sealed class was introduced in java 17
+---------------------------------------
+
+the concept of sealed class is sealed class can be used were we are restricting the class to be inherited by limited number of elements.
+
+if you are permiting a class in sealed class then those classes must be sealed /Non-sealed/ or final class 
+
+
+
+public sealed class TestSealed permits A,B{
+    //normal syntax of sealed class is public sealed class className permits A,B
+    //where A, B are classes to be permitted.
+    //sealed class can permit only those class which are sealed/Non-sealed/final
+}
+
+final class A extends TestSealed{
+
+}
+
+sealed class B extends TestSealed permits C{
+
+}
+
+non-sealed class C extends B{
+
+}
+
+example
+-------
+in case of creating the payment gateway that might be possible that you need to give permission to few class to inherit their comes the use of selaed class.
+
+
+we will make a class non-sealed when let us suppose class A is sealed class which is permiting class B & class C so as the rule class B,C can be either sealed/Non-sealed/Final class but we want to use class B to be inherited by other class , in this case we will make class B as non-sealed class so that it can be used or implemented by other class also class A that is sealed class will able to permit Class B & C. 
+
+Note : a sealed class can implement and extend also but should be written in the last
+sealed class A extends Thread implements clonable permits B,C{
+
+}
+
+
+Note : an interface can also be sealed interface or non-sealed interface but an interface can not be final
+
+sealed interface X permits Y{
+
+}
+
+sealed interface Y extends X{
+
+}
+
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+
+
+
+sealed interface AA permits BB,CC{
+
+}
+sealed interface BB extends AA permits CC{
+
+}
+non-sealed interface CC extends AA,BB{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
